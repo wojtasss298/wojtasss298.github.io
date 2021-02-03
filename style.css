@@ -1,0 +1,92 @@
+body{
+    background-color: #283339;
+    font-family: trebuchet ms,geneva ce,lucida,sans-serif;
+    color: white;
+}
+.container{
+    background-color: #373f42;
+    font-family: trebuchet ms,geneva ce,lucida,sans-serif;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1, h2, h3, h4, h5, h6 { margin:15px 0 10px 0; }
+h1 { font-size:200%; }
+h2 { font-size:160%; font-family: 'Trebuchet MS', 'Geneva CE', lucida, sans-serif; font-weight: normal; }
+h3 { font-size:120%; margin-top: 25px; font-family: 'Trebuchet MS', 'Geneva CE', lucida, sans-serif;}
+h4 { font-size:120%; }
+h5 { font-size:100%; }
+
+table { margin:15px 0; border: 1px solid #324455; border-collapse:collapse; border-spacing:0; font-size:100%; width: 100%;}
+th { text-align:center; font-weight:bold; border: 1px solid #324455;}
+th, td { padding:4px 6px; border: 1px solid #324455;}
+tr.table-top {background: #425364; font-weight: bold;}
+
+.nav{
+    width: 180px;
+    float: left;
+    text-align: left;
+}
+
+/*border-style: solid;*/
+
+.logo{
+    background-color: #283339;
+    text-align: center;
+}
+
+.freecss{
+    background-color: #283339;
+    text-align: center;
+}
+
+.header {
+    background-color: #34454b;
+    font-family: trebuchet ms,geneva ce,lucida,sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1f292d;
+    text-align: right;
+    font-family: trebuchet ms,geneva ce,lucida,sans-serif;
+}
+
+.content {
+    background-color: #373f42;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    font-weight: normal;
+    color: white;
+    font-family: trebuchet ms,geneva ce,lucida,sans-serif;
+}
+
+.rightpos{
+    text-align: right;
+}
+
+.centerpos{
+    text-align: center;
+}
+
+.leftpos{
+     text-align: left;
+}
+
+/* Linki */
+a:link {color: white; background-color: transparent; text-decoration: underline;}
+a:visited {color: white; background-color: transparent; text-decoration: underline;}
