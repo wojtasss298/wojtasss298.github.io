@@ -1,0 +1,14 @@
+.csscenter{
+	text-align: center;
+}
+
+h1 { font-size:200%; }
+h2 { font-size:160%; font-family: 'Trebuchet MS', 'Geneva CE', lucida, sans-serif; font-weight: normal; }
+h3 { font-size:120%; margin-top: 25px; font-family: 'Trebuchet MS', 'Geneva CE', lucida, sans-serif;}
+h4 { font-size:120%; margin: 0; padding: 0;}
+h5 { font-size:100%; }
+
+table { margin:15px 0; border: 1px solid #324455; border-collapse:collapse; border-spacing:0; font-size:100%; width: 100%;}
+th { text-align:center; font-weight:bold; border: 1px solid #324455;}
+th, td { padding:4px 6px; border: 1px solid #324455;}
+tr.table-top {background: #425364; font-weight: bold;}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<title>Generator Tablic Relacyjych</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" href="https://assets.analitycy.host/wojtasss298.ct8.pl/images/logo/icon.png">
+		<meta name="description" content="Generator Tablic Relacyjych" />
+	</head>
+	<body>
+		<div class="csscenter">
+			<h1>siema</h1>
+			<form method="POST">
+				Numer: <input type="text" name="trainNo" required="required"><br/>
+				Nazwa: <input type="text" name="trainName" required="required"><br/>
+				Stacja początkowa: <input type="text" name="firstStation" required="required"><br/>
+				Stacja końcowa: <input type="text" name="lastStation" required="required"><br/>
+				<button type="button" id="addst">Dodaj nową stację pośrednią</button><br/>
+				<input type="submit" onClick="generate()" value="Wygeneruj">
+			</form>
+			<p id="generate"></p>
+			<script>
+				function generate() {
+				document.getElementById("generate").innerHTML = "*tablczka relacyjna XD*";
+				}
+			</script>
+		</div>
+	</body>
+</html>
