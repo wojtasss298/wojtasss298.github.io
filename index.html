@@ -1,36 +1,83 @@
-<!DOCTYPE html>
-<html lang="pl">
-	<head>
-		<title>Generator Tablic Relacyjych</title>
-		<link rel="stylesheet" href="style.css">
-		<link rel="icon" href="https://assets.analitycy.host/wojtasss298.ct8.pl/images/logo/icon.png">
-		<meta name="description" content="Generator Tablic Relacyjych" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script>
-			function generate() {
-				generated = "<title>Tabliczka Relacyjna</title><body style='width: 802px; float:center;'><p style='width: 802px;text-align:left; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase; font-size: 40px; font-weight: bold;'><span style='color:red;'>" + (document.roz.trainNo.value) + "</span><span style='float: right; font-style: italic; color:red;'>" + (document.roz.trainName.value) + "</span><br><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center><span style='color:black;font-size:50px;font-family: Arial, Helvetica, sans-serif;text-transform:uppercase;font-weight: bold;'>" + (document.roz.firstStation.value) + "</span><br><br><span style='margin-left: auto;margin-right: auto;font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-size:30px'><center>" + (document.roz.Stations.value) + "</center></span><br><br><span style='float: right; color:black;font-size:50px; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-weight: bold;'>" + (document.roz.lastStation.value) +"</span></p><br><br><br><br><center><a href='index.html'>Powrót</a></center></body>";
-				document.write(generated);
-			}
-			function display() {
-				DispWin = window.open('','NewWin', 'toolbar=no,status=no,width=802,height=600')
-				message = "<title>Tabliczka Relacyjna</title><p style='text-align:left; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase; font-size: 40px; font-weight: bold;'><span style='color:red;'>" + (document.roz.trainNo.value) + "</span><span style='float: right; font-style: italic; color:red;'>" + (document.roz.trainName.value) + "</span><br><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center><span style='color:black;font-size:50px;font-family: Arial, Helvetica, sans-serif;text-transform:uppercase;font-weight: bold;'>" + (document.roz.firstStation.value) + "</span><br><br><span style='margin-left: auto;margin-right: auto;font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-size:30px'><center>" + (document.roz.Stations.value) + "</center></span><br><br><span style='float: right; color:black;font-size:50px; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-weight: bold;'>" + (document.roz.lastStation.value) +"</span></p>";
-				DispWin.document.write(message);
-			}
-		</script>
-	</head>
-	<body>
-		<div class="csscenter">
-			<h1>Generator Tablic Relacyjnych</h1>
-			<form method="POST" name="roz">
-				Numer Pociągu: <br><input type="text" SIZE="20" name="trainNo" required="required"><br/>
-				Nazwa Pociagu: <br><input type="text" SIZE="20" name="trainName" required="required"><br/>
-				Stacja Początkowa: <br><input SIZE="20" type="text" name="firstStation" required="required"><br/>
-				Stacja Końcowa: <br><input type="text" SIZE="20" name="lastStation" required="required"><br/>
-				Stacje<br>(oddzielone myślnikiem, domyślne formatowanie tekstu HTML): <br><input type="text" SIZE="20" name="Stations"><br/><br/>
-				<button type='button' onClick="generate()">Wygeneruj</button> 
-				<button type='button' onClick="display()">Wygeneruj (w nowym oknie)</button> 
-			</form>
-		</div>
-		<br><br><br><br><center><br>Made by wojtasss298 &copy; 2020 - <script>document.write(new Date().getFullYear())</script> <a href="https://analitycy.host">Analitycy.host</a><br><a href="https://github.com/analitycy-host">Github</a> <a href="https://discord.gg/6j8f7uwdQv">Discord</a><!--<br>Version 1.0 <a href="changelog.php">changelog</a>--><br>Kontakt: <a href="mailto:wojtasss298@gmail.com">wojtasss298@gmail.com</a></center>
-	</body>
-</html>
+ <style>
+        * {
+            color: #FFFFFF;
+            font-size: 1.25rem;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #000000;
+            width: 70%;
+            margin: 5rem auto;
+        }
+
+        @media screen and (max-width: 500px) {
+            body {
+                width: 90%;
+                margin: 0rem auto;
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin: 5rem 0;
+            display: block;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        .big {
+            font-size: 1.5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+ </style>
+ <title>Media Bez Wyboru</title>
+ <p class="big">Tu miał być twój ulubiony file-uploader</p>
+ <p>Dzisiaj wydajemy specjalną edycje serwisu w związku z akcją "Media Bez Wyboru"</p>
+ <script>
+ const app = document.getElementById('root')
+
+const logo = document.createElement('img')
+logo.src = 'logo.png'
+
+const container = document.createElement('div')
+container.setAttribute('class', 'container')
+
+app.appendChild(logo)
+app.appendChild(container)
+
+var request = new XMLHttpRequest()
+request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
+request.onload = function () {
+  // Begin accessing JSON data here
+  var data = JSON.parse(this.response)
+  if (request.status >= 200 && request.status < 400) {
+    data.forEach((movie) => {
+      const card = document.createElement('div')
+      card.setAttribute('class', 'card')
+
+      const h1 = document.createElement('h1')
+      h1.textContent = movie.title
+
+      const p = document.createElement('p')
+      movie.description = movie.description.substring(0, 300)
+      p.textContent = `${movie.description}...`
+
+      container.appendChild(card)
+      card.appendChild(h1)
+      card.appendChild(p)
+    })
+  } else {
+    const errorMessage = document.createElement('marquee')
+    errorMessage.textContent = `Gah, it's not working!`
+    app.appendChild(errorMessage)
+  }
+}
+
+request.send()</script>
