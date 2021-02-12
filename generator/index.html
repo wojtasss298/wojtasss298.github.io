@@ -8,6 +8,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<noscript><strong><center>Strona do poprawnego działania wymaga obsługi skryptów Java Script, sprawdź czy twoja przeglądarka wsipiera obsługę skryptów lub wyłącz oprogramowanie blokujące</center></strong></noscript>
 		<noframes>Strona do poprawnego działania wymaga obsługi ramek, sprawdź czy twoja przeglądarka wsipiera obsługę ramek lub wyłącz oprogramowanie blokujące</noframes>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 		<script>
 			function generate() {
 				generated = "<title>Tabliczka Relacyjna</title><body style='width: 802px; float:center;'><p style='width: 802px;text-align:left; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase; font-size: 40px; font-weight: bold;'><span style='color:red;'>" + (document.roz.trainNo.value) + "</span><span style='float: right; font-style: italic; color:red;'>" + (document.roz.trainName.value) + "</span><center>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center><span style='color:black;font-size:50px;font-family: Arial, Helvetica, sans-serif;text-transform:uppercase;font-weight: bold;'>" + (document.roz.firstStation.value) + "</span><br><br><span style='margin-left: auto;margin-right: auto;font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-size:30px'><center>" + (document.roz.Stations.value) + "</center></span><br><br><span style='float: right; color:black;font-size:50px; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-weight: bold;'>" + (document.roz.lastStation.value) +"</span></p><br><br><br><br><center><a href='index.html'>Powrót</a></center></body>";
@@ -34,12 +36,43 @@
 				<button type='button' onClick="display()">Wygeneruj (w nowym oknie)</button>  
 			</form>
 			<button onclick="generujmordo()">Wygeneruj (na tej samej stronie)</button>
+			<button onclick="generujstala()">Wygeneruj (wysokość 500px)</button>
 		</div>
-	<p id="generated"></p>
+		<input id="btn-Preview-Image" href="#downloadeddiv" type="button" value="Renderuj"/>
+		<button><a id="btn-Convert-Html2Image" href="#downloadeddiv" style="color:black;">Pobierz</a></button>
+		<center><div style="width: 820px; height:auto;" id="downloadeddiv"><p id="generated"></p></div></center>
 		<script>
 			function generujmordo() {
-				document.getElementById("generated").innerHTML = "<center><div style='border:white; border-width:10px; border-style:solid;width: 820px; height:500px ; float:center; background-color: white;'><p style='text-align:left; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase; font-size: 40px; font-weight: bold;'><span style='color:red;'>" + (document.roz.trainNo.value) + "</span><span style='float: right; font-style: italic; color:red;'>" + (document.roz.trainName.value) + "</span><span style='color:black;font-size:15px;'><center style='color:black;'>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center></span><br><span style='color:black;font-size:50px;font-family: Arial, Helvetica, sans-serif;text-transform:uppercase;font-weight: bold;float:left;'>" + (document.roz.firstStation.value) + "</span><br><br><span style='margin-left: auto;margin-right: auto;font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-size:30px;color:black;line-height: 30px;'><center>" + (document.roz.Stations.value) + "</center></span><br><br><span style='float: right; color:black;font-size:50px; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-weight: bold;'>" + (document.roz.lastStation.value) +"</span></p></div></center>";}
+				document.getElementById("generated").innerHTML = "<center><div style='border-style:solid;border-width: 10px;border-color:white;width: 820px; height:auto ; float:center; background-color: white;'><p style='text-align:left; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase; font-size: 40px; font-weight: bold;'><span style='color:red;'>" + (document.roz.trainNo.value) + "</span><span style='float: right; font-style: italic; color:red;'>" + (document.roz.trainName.value) + "&nbsp;&nbsp;</span><span style='color:black;font-size:15px;'><center style='color:black;'>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center></span><br><span style='color:black;font-size:50px;font-family: Arial, Helvetica, sans-serif;text-transform:uppercase;font-weight: bold;float:left;'>" + (document.roz.firstStation.value) + "</span><br><br><span style='margin-left: auto;margin-right: auto;font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-size:30px;color:black;line-height: 30px;'><center>" + (document.roz.Stations.value) + "</center></span><br><br><span style='float: right; color:black;font-size:50px; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-weight: bold;'>" + (document.roz.lastStation.value) +"&nbsp;&nbsp;</span><br><br></p></div></center>";}
+				function generujstala() {
+				document.getElementById("generated").innerHTML = "<center><div style='border-style:solid;border-width: 10px;border-color:white;width: 820px; height:500px ; float:center; background-color: white;'><p style='text-align:left; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase; font-size: 40px; font-weight: bold;'><span style='color:red;'>" + (document.roz.trainNo.value) + "</span><span style='float: right; font-style: italic; color:red;'>" + (document.roz.trainName.value) + "&nbsp;&nbsp;</span><span style='color:black;font-size:15px;'><center style='color:black;'>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</center></span><br><span style='color:black;font-size:50px;font-family: Arial, Helvetica, sans-serif;text-transform:uppercase;font-weight: bold;float:left;'>" + (document.roz.firstStation.value) + "</span><br><br><span style='margin-left: auto;margin-right: auto;font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-size:30px;color:black;line-height: 30px;'><center>" + (document.roz.Stations.value) + "</center></span><br><br><span style='float: right; color:black;font-size:50px; font-family: Arial, Helvetica, sans-serif; text-transform:uppercase;font-weight: bold;'>" + (document.roz.lastStation.value) +"&nbsp;&nbsp;</span><br><br></p></div></center>";}
+		</script>
+		<script>
+				$(document).ready(function(){
+				var element = $("#downloadeddiv");
+				var getCanvas;
+				$("#btn-Preview-Image").on('click', function () {
+					html2canvas(element, {
+					onrendered: function (canvas) {
+					getCanvas = canvas;
+						}
+					});
+				});
+			$("#btn-Convert-Html2Image").on('click', function () {
+			var imgageData = getCanvas.toDataURL("image/png");
+			var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+			$("#btn-Convert-Html2Image").attr("download", "tr_" + (document.roz.trainNo.value) + "_" + (document.roz.trainName.value) + ".png").attr("href", newData);
+				});
+			});
 		</script>
 	<br><br><br><br><center><br>Made by wojtasss298 &copy; 2020 - <script>document.write(new Date().getFullYear())</script> <a href="https://analitycy.host">Analitycy.host</a><br><a href="https://github.com/analitycy-host">Github</a> <a href="https://discord.gg/6j8f7uwdQv">Discord</a><!--<br>Version 1.0 <a href="changelog.php">changelog</a>--><br>Kontakt: <a href="mailto:wojtasss298@gmail.com">wojtasss298@gmail.com</a></center>
 	</body>
 </html>
+
+
+
+
+	
+
+
+
