@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="author" content='Michał "bopke" Kubik'>
+        <meta name="author" content='Marcin "MrTalon63" Czop'>
+        <link rel="icon" href="/assets/icon.webp">
+        <title>PIWO PIWO PIWO PIWO</title>
+    </head>
+    <body onload=checkDay()>
+        <span id="friday"></span>
+        <h1>PIWO PIWO PIWO PIWO</h1>
+        <img src="/assets/harnas.webp">
+        <img src="/assets/dziekan.webp">
+        <img src="/assets/dziekan.webp">
+        <img src="/assets/dziekan.webp">
+        <img src="/assets/dziekan.webp">
+        <img src="/assets/dziekan.webp">
+        <img src="/assets/dziekan.webp">
+        <img src="/assets/dziekan.webp">
+        <div>
+            <button style="width: 200px; height: 100px;" onclick="addElement()">KLIKNIJ PO WIĘCEJ</button>
+        </div>
+        <div id="piwo"></div>
+		<div id="weed"></div>
+        
+        <script>
+        
+            window.onload=checkDay()
+			
+        
+            function addElement() {
+                let tag = document.createElement('img');
+                tag.src = '/assets/zubr.webp' ;
+                tag.style = 'width: 300px; height: 400px;';
+                let element = document.getElementById('piwo');
+                element.appendChild(tag);
+            }
+            
+            function checkDay() {
+                if (new Date().getDay() === 4) {
+                    document.getElementById("friday").innerHTML = `<img src="/assets/friday.gif"></img><img src="/assets/friday.gif"></img>`
+                }
+                else {
+                    return;
+                }
+            }
+        </script>
+		<script>
+		
+		window.onload=checkDayTime()
+		
+			var dt = new Date();
+			var dy = dt.day(); 
+			var hr = dt.getHours(); 
+
+			function checkDayTime() {
+			if (dy = 5 && hr >= 20 && hr < 23) {
+				document.getElementById("weed").innerHTML = `<img src="/assets/friday.gif"></img><img src="/assets/friday.gif"></img>`
+			}
+			else {
+                    return;
+                }
+			}
+		</script>
+    </body>
+</html>
