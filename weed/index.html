@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="author" content='wojtasss298'>
+		<meta name="description" content="PIĄTEK, SOBOTA, DWUDZIESTA, OBECNOŚĆ OBOWIĄZKOWA!" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WEED</title>
+		<style>
+        .ez{
+          animation: ez 1.5s alternate infinite ease-in;
+        }
+        
+        @keyframes ez{
+          0%   {transform: scale(.8);}
+        100% {transform: scale(1.5);}
+        }
+        
+                .ez2{
+          animation: ez2 1.5s alternate infinite ease-in;
+        }
+        
+        @keyframes ez2{
+          0%   {transform: scale(.05);}
+        100% {transform: scale(0.4);}
+        }
+      </style>
+    </head>
+    <body onload=checkDayTime() style="background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(36,255,0,1) 35%, rgba(0,7,255,1) 100%);">
+		<center>
+			<span id="friday"></span>
+				<p style="color:red; font-size: 72px;" class="ez">WEED WEED WEED WEED</p>
+			<div id="weed"></div>
+		</center>
+		<script>
+		window.onload=checkDayTime()
+			function checkDayTime() {
+                if (new Date().getDay() === 6) {
+					if (new Date().getHours() === 22) {
+						document.getElementById('weed').innerHTML = "<img weight='250px' height='250px' src='https://i.gifer.com/6os.gif'><video controls src='https://c.mczop.co.pl/u/weed.mp4'></video><img weight='250' height='250' src='https://i.gifer.com/6os.gif'>"
+					} else {
+                    return;
+                }}
+            }
+		</script>
+    </body>
+</html>
