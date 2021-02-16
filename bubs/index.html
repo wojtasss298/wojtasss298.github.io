@@ -7,12 +7,19 @@
 		<noscript>Strona do poprawnego działania wymaga obsługi skryptów Java Script, sprawdź czy twoja przeglądarka wsipiera obsługę skryptów lub wyłącz oprogramowanie blokujące</noscript>
 		<noframes>Strona do poprawnego działania wymaga obsługi ramek, sprawdź czy twoja przeglądarka wsipiera obsługę ramek lub wyłącz oprogramowanie blokujące</noframes>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script>
-		axios.get('http://api.wojtasss298.ct8.pl:8959/api/v1/buly')
+		<!--<script>axios.get('http://api.wojtasss298.ct8.pl:8959/api/v1/buly')
 			.then((response) => {
 			console.log(response.data.url);
 			document.getElementById('image').innerHTML = "<img src='"+response.data.url+"'>"
-		});
+		});</script>-->
+		<script>
+		async function getAPI() {
+				const response = await fetch('http://api.wojtasss298.ct8.pl:8959/api/v1/buly');
+				const data = await response.json();
+				console.log(data.url);
+				document.getElementById('image').innerHTML = "<img src='"+data.url+"'>"
+			}
+		getAPI();
 		</script>
 		<style>
 		.csscenter{text-align: center;}
