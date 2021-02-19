@@ -69,15 +69,6 @@
 				width: 820px; height:auto;
 			}
 		</style>
-		<script>
-		$( 'input[type=button]' ).on('click', function(){
-			var cursorPos = $('#stationsarea').prop('selectionStart');
-			var v = $('#stationsarea').val();
-			var textBefore = v.substring(0,  cursorPos );
-			var textAfter  = v.substring( cursorPos, v.length );
-			$('#stationsarea').val( textBefore+ $(this).val() +textAfter );
-		});
-	</script>
 	</head>
 	<body>
 		<div class="container">
@@ -94,7 +85,16 @@
 							Stacja Końcowa: <br><input type="text" SIZE="20" name="lastStation"><br/>
 							Stacje<br> 
 							<input type="button" value="<b></b>" /><input type="button" value="<em></em>" /><input type="button" value="<del></del>" /><input type="button" value="<small></small>" /><input type="button" value="<mark></mark>" /><input type="button" value="<pre></pre>" />
-							<br><textarea id="stationsarea" name="Stations" SIZE="40">wpisz tutaj stacje</textarea><br/>
+							<br><textarea id="stationsarea" placeholder="Wpisz tutaj stacje" cols="50" rows="10" name="Stations"></textarea><br/>
+							<script>
+								$( 'input[type=button]' ).on('click', function(){
+									var cursorPos = $('#stationsarea').prop('selectionStart');
+									var v = $('#stationsarea').val();
+									var textBefore = v.substring(0,  cursorPos );
+									var textAfter  = v.substring( cursorPos, v.length );
+									$('#stationsarea').val( textBefore+ $(this).val() +textAfter );
+								});
+							</script>
 						</form>
 					</div>
 					<div class="buttons">
