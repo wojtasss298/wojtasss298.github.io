@@ -1,0 +1,42 @@
+<div class="bar-category">
+						<div class="bar-title">
+							Github
+						</div>
+						<div class="bar-subtitle">
+								Tutaj możesz zobaczyć mojego GitHuba!
+							<div class="github-stats">
+								<a href="https://github.com/anuraghazra/github-readme-stats">
+									<img style="width:98%" src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats" />
+								</a>
+								<a href="https://github.com/anuraghazra/convoychat">
+									<img style="width:98%" src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=convoychat" />
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="bar-category">
+						<div class="bar-title">
+							Projekty
+						</div>
+						<div class="bar-subtitle">
+								Moje Projekty:
+							<div class="bar-content">
+								<div class="projects">
+									<div class="bar-content-subtitle">
+										IMGBOT
+									</div>
+									<div class="bar-content-description">
+										IMGBOT - BOT wysyłający obrazki w prawie każdej kategorii! <a href="imgbot.html">Czytaj Dalej</a>
+									</div>
+									<div class="bar-content-subtitle">
+										JebaczPisu
+									</div>
+									<div class="bar-content-description">
+										JebaczPisu to prosty BOT na discorda, jego funkcja jest chyba oczywista. Link umożliwiający dodanie BOT'a na swój własny serwer Discord. <a href="https://discord.com/api/oauth2/authorize?client_id=775766942086725642&permissions=0&scope=bot">LINK</a>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="main-image">
+                        <img src="./assets/img/images/WBcolWGL.png" width="90%" height="90%">
+					</div>
