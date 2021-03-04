@@ -43,3 +43,10 @@
 					<div class="cat-image">
 								<img src="https://aduu.pl/wp-content/uploads/2019/04/placeholder-image.jpg">
 							</div>
+							<div class="cat-image">
+								<img src="/assets/img/images/placeholder.jpg">
+							</div>
+							<div class="card-container">
+								<h4><b>wojtasss298</b></h4> 
+								<p>Young node.js and web developer</p>
+							</div>
