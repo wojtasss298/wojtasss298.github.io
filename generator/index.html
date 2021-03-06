@@ -5,6 +5,8 @@
 		<link rel="icon" href="https://assets.analitycy.host/wojtasss298.ct8.pl/images/logo/icon.png">
 		<meta name="description" content="Generator Tablic Relacyjnych" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="Generator, Tablice, PKP, Polskie Koleje Państwowe, Tablice Rozjazdowe, Tablice kierunkowe, tablice relacyjne, tabliczki, generator tablic ralacyjnych, rozkład jazdy, Polskie Linie Kolejowe">
+		<meta name="author" content="wojtasss298#5421">
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://wojtasss298.github.io/generator/">
 		<meta property="og:title" content="Generator Tablic Relacyjnych">
@@ -23,68 +25,15 @@
 		<noscript>
 			<meta http-equiv="refresh" content="0;url=../noscript">
 		</noscript>
-		<meta name="keywords" content="Generator, Tablice, PKP, Polskie Koleje Państwowe, Tablice Rozjazdowe, Tablice kierunkowe, tablice relacyjne, tabliczki, generator tablic ralacyjnych, rozkład jazdy, Polskie Linie Kolejowe">
-		<meta name="author" content="wojtasss298#5421">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 		<script src="https://www.xul.fr/ajax/ajax.js"></script>
 		<script src="https://www.xul.fr/ajax/responseHTML.js"></script>
-		<script src="../assets/js/canvas.js"></script>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>	
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<style>
-			.csscenter{float:center;text-align:center;}
-			.cssheader{font-weight: bold;font-size:160%;}
-			.container{font-family: trebuchet ms,geneva ce,lucida,sans-serif;}
-			.accordion {
-			  color: rgb(0, 0, 0);
-			  background-color: white;;
-			  cursor: pointer;
-			  padding: 10px 10px;
-			  margin-top:20px;
-			  width: 100%;
-			  border: 1px solid #00000042;
-			  outline: none;
-			  transition: 0.4s;
-			}
-			.active, .accordion:hover {
-			  background-color: white;
-			}
-			.panel {
-			  padding: 0 18px;
-			  font-size: 18px;
-			  background-color: white;
-			  max-height: 0;
-			  overflow: hidden;
-			  transition: max-height 0.3s ease-out;
-			  border: 1px solid #00000042;
-			}
-			.accordion-div{
-				font-family: trebuchet ms,geneva ce,lucida,sans-serif;
-				width: 80%;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			textarea {
-				white-space: normal;
-				width: 50%;
-				text-align: justify;
-				-moz-text-align-last: center; 
-				text-align-last: center;
-			}
-			.footer {
-				position: fixed;
-				left: 0;
-				bottom: 0;
-				width: 100%;
-				background-color:white;
-				text-align: center;
-				font-family: trebuchet ms,geneva ce,lucida,sans-serif;
-			}
-			.rendered{
-				width: 820px; height:auto;
-			}
-		</style>
+		<script src="../assets/js/accordion-minifed.js"></script>
+		<script src="../assets/js/canvas-minifed.js"></script>
+		<link id="pagestyle" rel="stylesheet" type="text/css" href="../assets/css/generator/stylesheet-minifed.css"> 
 	</head>
 	<body>
 		<div class="container">
@@ -156,27 +105,5 @@
 				<a href="https://discord.gg/6j8f7uwdQv">Discord</a><br>
 			</div>
 		</div>
-		<script>
-			var acc = document.getElementsByClassName("accordion");
-			var i;
-
-			for (i = 0; i < acc.length; i++) {
-			acc[i].addEventListener("click", function() {
-
-			var panel = this.nextElementSibling;
-			if (panel.style.maxHeight){
-			  panel.style.maxHeight = null;
-			} else {
-			  let active = document.querySelectorAll(".accordion-div .accordion.active");
-			  for(let j = 0; j < active.length; j++){
-				active[j].classList.remove("active");
-				active[j].nextElementSibling.style.maxHeight = null;
-			  }
-			  this.classList.toggle("active");
-			  panel.style.maxHeight = panel.scrollHeight + "px";
-			}
-			});
-			}
-		</script>
 	</body>
 </html>

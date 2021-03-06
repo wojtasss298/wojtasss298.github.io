@@ -50,3 +50,18 @@
 								<h4><b>wojtasss298</b></h4> 
 								<p>Young node.js and web developer</p>
 							</div>
+							<!--<script>
+			function swapStyleSheet(sheet) {
+				 document.getElementById("pagestyle").setAttribute("href", sheet);  
+			 }
+
+			 function initate() {
+				 var style1 = document.getElementById("stylesheet1");
+				 var style2 = document.getElementById("stylesheet2");
+
+				 style1.onclick = function () { swapStyleSheet("light.css") };
+				 style2.onclick = function () { swapStyleSheet("dark.css"); };
+			 }
+		</script>
+		<button id="stylesheet1" > Default Style Sheet </button>
+		<button id="stylesheet2" > Dark Style Sheet </button>-->
