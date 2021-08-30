@@ -50,3 +50,16 @@ table {
 .align-left{
     text-align: left;
 }
+
+audio{
+    width: 200px;
+    height: 20px;
+}
+
+.small{
+    font-size: 70%;
+}
+
+.muted{
+    opacity: 70%;
+}

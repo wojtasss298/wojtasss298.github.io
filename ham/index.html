@@ -6,20 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <script src="assets/js/player.js"></script>
     <title>Hamskiegówno</title>
 </head>
 <body>
-    <nav>Strona Główna</nav>
-    <ul>
-        <li><a href="pkp.html">PKP</a></li>
-        <li><a href="radiosondy.html">Radiosondy</a></li>
-        <li><a href="cb.html">CB</a></li>
-        <li><a href="software.html">Software</a></li>
-        <li><a href="linki.html">Linki</a></li>
-        <li><a href="satelity.html">Satelity</a></li>
-        <li><a href="inne.html">Inne</a></li>
-        <li><a href="bandplan.html">BandPlan</a></li>
-    </ul>
+    <nav>
+        Strona Główna
+    </nav>
+    <div class="row">
+        <div class="col-xsm-12 col-sm-12 col-md-6 col-lg-6 col-xlg-6">
+            <ul>
+                <li><a href="pkp.html">PKP</a></li>
+                <li><a href="radiosondy.html">Radiosondy</a></li>
+                <li><a href="cb.html">CB</a></li>
+                <li><a href="software.html">Software</a></li>
+                <li><a href="linki.html">Linki</a></li>
+                <li><a href="satelity.html">Satelity</a></li>
+                <li><a href="inne.html">Inne</a></li>
+                <li><a href="bandplan.html">BandPlan</a></li>
+            </ul>
+        </div>
+        <div class="col-xsm-12 col-sm-12 col-md-6 col-lg-6 col-xlg-6">
+            <audio onplay="volume = 0.1" controls src="https://stream.open.fm/69"></audio><br>
+            <div class="small muted">OpenFM - Dzień Dobry </div>
+
+            <audio onplay="volume = 0.1" controls src="https://stream.open.fm/109"></audio><br>
+            <div class="small muted">OpenFM - Praca </div>
+
+            <audio onplay="volume = 0.1" controls src="https://stream.open.fm/117"></audio><br>
+            <div class="small muted">OpenFM - Nauka </div>
+
+            <audio onplay="volume = 0.1" controls src="https://stream.open.fm/33"></audio><br>
+            <div class="small muted">OpenFM - Chillout </div>
+
+            <audio onplay="volume = 0.1" controls src="https://stream.open.fm/161"></audio><br>
+            <div class="small muted">OpenFM - Koncentracja </div>
+
+        </div>
+    </div>
     <hr>
     <div id="rigref-solar-widget"><a href="https://rigreference.com/solar" target="_blank"><img class="img-res" src="https://rigreference.com/solar/img/cb" border="0"></a></div>
     <div id="rigref-solar-widget"><a href="https://rigreference.com/solar" target="_blank"><img class="img-res" src="https://rigreference.com/solar/img/wide" border="0"></a></div>
@@ -46,7 +70,7 @@
         HEIGHT=21 BORDER=0 ALT="Status"
         SRC="http://amunters.home.xs4all.nl/eskipstatusNA.gif"></A></TD></TR>
     </TABLE>
-    <hr>    
+    <hr>  
     <footer>
         <a href="https://github.com/wojtasss298/">Github</a><br>
         Made by wojtasss298 - &copy; <script>document.write(new Date().getFullYear())</script>
