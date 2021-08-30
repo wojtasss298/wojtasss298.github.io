@@ -28,3 +28,25 @@ ul{
 nav {
     font-size: 90%;
 }
+
+table, td, th {
+    border: 1px solid rgb(100, 100, 100);
+}
+
+td, th{
+    padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.img-res {
+	padding-top:15px;
+	padding-bottom: 15px;
+	max-width: 100%;
+}
+
+.align-left{
+    text-align: left;
+}
