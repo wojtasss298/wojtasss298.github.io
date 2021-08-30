@@ -63,3 +63,17 @@ audio{
 .muted{
     opacity: 70%;
 }
+
+footer{
+    opacity: 70%;
+    font-size: 70%;
+}
+
+.heading{
+    margin: 5px;
+}
+
+.centercss{
+    margin-right: auto;
+    margin-left: auto;
+}
