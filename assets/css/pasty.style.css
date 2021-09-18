@@ -1,0 +1,38 @@
+body {      
+    background-color:#2A2A2A;
+    font-family: 'Roboto', sans-serif;
+    color:white;
+}
+
+li {
+    text-align:center; 
+    list-style-type:none;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#5A5A5A;
+    width:500px;
+    height:40px;
+    padding:5px;
+    padding-top:25px;
+    margin-top:5px;
+    margin-bottom:5px;
+    transition: 0.3s;
+}
+
+a {
+    text-decoration:underline;
+    color:white;
+}
+a:hover {
+    text-decoration:none;
+}
+
+li:hover{
+    background-color:#FF8F00;
+    width:520px;
+    height:45px;
+}
+
+header{
+    text-align:center;
+}
