@@ -4,13 +4,12 @@ body {
     color:white;
 }
 
-li {
+.dupa {
     text-align:center; 
-    list-style-type:none;
     margin-left:auto;
     margin-right:auto;
     background-color:#5A5A5A;
-    width:500px;
+    width:70%;
     height:40px;
     padding:5px;
     padding-top:25px;
@@ -27,9 +26,9 @@ a:hover {
     text-decoration:none;
 }
 
-li:hover{
+.dupa:hover{
     background-color:#FF8F00;
-    width:520px;
+    width:75%;
     height:45px;
 }
 
