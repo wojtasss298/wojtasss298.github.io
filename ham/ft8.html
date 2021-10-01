@@ -9,16 +9,9 @@
     <title>FT8</title>
 </head>
 <body>
-    <nav>
-        <a href="./">Strona Główna</a> |
-        <a href="./satelity.html">Satelity</a> |
-        <a href="./pkp.html">PKP</a> |
-        <a href="./freq.html">Częstotliwości</a> |
-        <a href="./bandplan.html">BandPlan</a> |
-        <a href="./cb.html">CB Radio</a>
-    </nav>
+    <div id="nav"></div>
     <hr>
-    <table style="text-align: center;">
+    <table style="text-align: center;margin-bottom: 30px;">
     <tr>
         <th colspan="4" style="font-weight: bold; background: silver;">Common Frequencies for FT8 &amp; JS8Call</th>
     </tr>
@@ -191,10 +184,15 @@
         <td style="text-align: left;"></td>
     </tr>
 </table>
-
     <footer>
         <a href="https://github.com/wojtasss298/">Github</a><br>
         Made by wojtasss298 - &copy; <script>document.write(new Date().getFullYear())</script>
     </footer>
 </body>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+      $("#nav").load("navbar.html");
+    });
+</script>
 </html>

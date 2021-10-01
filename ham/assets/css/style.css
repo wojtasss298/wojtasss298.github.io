@@ -65,8 +65,12 @@ audio{
 }
 
 footer{
-    opacity: 70%;
     font-size: 70%;
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(39, 39, 39);
 }
 
 .heading{
