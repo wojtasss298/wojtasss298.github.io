@@ -2,6 +2,7 @@ img,iframe{
     padding-top:15px;
     padding-bottom: 15px;
     max-width: 100%;
+    text-align: center;
 }
 
 body{
