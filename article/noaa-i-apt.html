@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satelity NOA i APT</title>
+    <link rel="stylesheet" href="../assets/css/project.css"> 
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+    <a href="../">Powrót</a>
+    <h1>Satelity NOAA i APT. Czym one są i jak je odbierać? </h1>
+    <small>Dodano: 25.01.2021 - stihlwagon#4958, wojtasss298</small>
+
+    <p>Spis treści</p>
+    <ol>
+        <li><a href="#podstawy">Podstawy</a></li>
+        <li><a href="#wypadek">Wypadek satelity</a></li>
+        <li><a href="#odbior">Najważniejsza rzecz, odbiór</a></li>
+        <ol>
+            <li><a href="#antena">Antena</a></li>
+            <li><a href="#odbiornik">Odbiornik</a></li>
+            <li><a href="#soft">Oprogramowanie</a></li>
+            <li><a href="dekodowanie">Odbiór i dekodowanie</a></li>
+        </ol>
+        <li><a href="#podsumiwanie">Podsumowanie</a></li>
+        <li><a href="#zrodla">Źródła</a></li>
+    </ol>
+
+    <hr/>
+
+    <h3 id="podstawy">Podstawy</h3>
+    <p class="align-justify">Zacznijmy od podstawowych spraw, czym w ogóle jest NOAA i APT? A więc – NOAA (<b>N</b>ational <b>O</b>ceanic and <b>A</b>tmospheric <b>A</b>dministration) jest amerykańską instytucją rządową zajmującą się prognozowaniem pogody, polskim odpowiednikiem jest IMGW. APT (<b>A</b>utomatic <b>P</b>icture <b>T</b>ransmission) – tryb analogowego wysyłania obrazków używany przez satelity NOAA. </p>
+    <p class="align-justify">Satelity NOAA są umieszczone na niskiej orbicie okołoziemskiej na wysokości ok. 850km. Satelity te wchodzą w skład systemu POES (<b>P</b>olar <b>O</b>perational <b>E</b>nvironmental <b>S</b>atellite). Następcą tego systemu jest JPSS (<b>J</b>oint <b>P</b>olar <b>S</b>atellite <b>S</b>ystem). Satelity te mają na swoim pokładzie zestaw instrumentów służących do analizy bazy chmur oraz temperatur. Głównym instrumentem jest AVHRR (<b>A</b>dvanced <b>V</b>ery-<b>H</b>igh-<b>R</b>esolution <b>R</b>adiometer), który obrazuje sześć kanałów, 3 kanały w świetle widocznym oraz 3 kanały w podczerwieni. </p>
+    <figure id="zdj1">
+        <a href="./noaa/685px-NOAA-N'_satellite_in_Vandenberg_AFB_clean_room.jpg" title="Kliknij aby powiększyć">
+            <img class="img-res" alt="Satelita NOAA19" src="./noaa/685px-NOAA-N'_satellite_in_Vandenberg_AFB_clean_room.jpg">
+        </a>
+        <figcaption>
+            <i>Zdj.1 - Satelita NOAA-19</i>
+        </figcaption>
+    </figure>
+    <p class="align-justify">Obecnie dane pogodowe nadają odpowiednio: NOAA 15, NOAA 18 NOAA 19. Przeloty satelit można śledzić na stronach do śledzenia satelit online, między innymi <a href="https://n2yo.com">n2yo.com</a>, lub w programach, takich jak Orbitron oraz GPredict. Poniżej znajduje się tabela<sup><a href="#tab1">[tab1]</a></sup> z częstotliwościami nadajników z wcześniej wspomnianych satelit.</p>
+    <figure id="tab1">
+        <figcaption>
+            <i>Tabela 1 - Częstotliwości nadajników satelit NOAA 15, NOAA 18, NOAA 19</i>
+        </figcaption>
+        
+        <div style="overflow-x: auto;">
+        <table class="mar-top-bot">
+            <thead>NOAA 15</thead>
+            <tr>
+                <th>Usługa</th>
+                <th>Częstotliwość</th>
+                <th>Szerokość pasma</th>
+                <th>Polaryzacja</th>
+                <th>Cyfrowe/Analogowe</th>
+                <th>Komentarz</th>
+            </tr>
+            <tr>
+                <td>HRPT</td>
+                <td>1702.5 MHz</td>
+                <td>4000  kHz</td>
+                <td>LHCP</td>
+                <td>Cyfrowe</td>
+                <td>Obrazy wysokiej rozdzielczości</td>
+            </tr>
+            <tr>
+                <td>APT</td>
+                <td>137.5 MHz</td>
+                <td>38 kHz</td>
+                <td>RHCP</td>
+                <td>Analogowe</td>
+                <td>Obrazy niższej rozdzielczości</td>
+            </tr>
+            <tr>
+                <td>TLM & BEACON</td>
+                <td>137.35 MHz (PSK)</td>
+                <td></td>
+                <td></td>
+                <td>Cyfrowe</td>
+                <td>Telemetria</td>
+            </tr>
+        </table>
+        </div>
+
+        <div style="overflow-x: auto;">
+        <table class="mar-top-bot">
+            <thead>NOAA 18</thead>
+            <tr>
+                <th>Usługa</th>
+                <th>Częstotliwość</th>
+                <th>Szerokość pasma</th>
+                <th>Polaryzacja</th>
+                <th>Cyfrowe/Analogowe</th>
+                <th>Komentarz</th>
+            </tr>
+            <tr>
+                <td>HRPT</td>
+                <td>1702.5 MHz</td>
+                <td>4000  kHz</td>
+                <td>RHCP</td>
+                <td>Cyfrowe</td>
+                <td>Obrazy wysokiej rozdzielczości</td>
+            </tr>
+            <tr>
+                <td>APT</td>
+                <td>137.9125 MHz</td>
+                <td>38 kHz</td>
+                <td>RHCP</td>
+                <td>Analogowe</td>
+                <td>Obrazy niższej rozdzielczości</td>
+            </tr>
+            <tr>
+                <td>BEACON&nbsp;1</td>
+                <td>137.35 MHz</td>
+                <td></td>
+                <td>RHCP</td>
+                <td>Analogowe</td>
+                <td>CW</td>
+            </tr>
+            <tr>
+                <td>BEACON&nbsp;2</td>
+                <td>137.77 MHz</td>
+                <td></td>
+                <td>RHCP</td>
+                <td>Analogowe</td>
+                <td>CW</td>
+            </tr>
+        </table>
+        </div>
+        
+        <div style="overflow-x: auto;">
+        <table class="mar-top-bot">
+            <thead>NOAA 19</thead>
+            <tr>
+                <th>Usługa</th>
+                <th>Częstotliwość</th>
+                <th>Szerokość pasma</th>
+                <th>Polaryzacja</th>
+                <th>Cyfrowe/Analogowe</th>
+                <th>Komentarz</th>
+            </tr>
+            <tr>
+                <td>HRPT</td>
+                <td>1698 MHz</td>
+                <td>4000  kHz</td>
+                <td>RHCP</td>
+                <td>Cyfrowe</td>
+                <td>Obrazy wysokiej rozdzielczości</td>
+            </tr>
+            <tr>
+                <td>APT</td>
+                <td>137.1 MHz</td>
+                <td>38 kHz</td>
+                <td>RHCP</td>
+                <td>Analogowe</td>
+                <td>Obrazy niższej rozdzielczości</td>
+            </tr>
+        </table>
+        </div>
+    </figure>    
+
+    <h3 id="wypadek">Wypadek satelity</h3>
+    <p class="align-justify">Satelicie NOAA-19 przytrafił się wypadek, mianowicie 6 września 2003 roku o godzinie 15:28 czasu uniwersalnego satelita upadł na podłogę dramatycznie się uszkadzając. </p>
+    <figure id="zdj2">
+        <a href="./noaa/NOAA-N'_accident.jpg" title="Kliknij aby powiększyć">
+            <img class="img-res" alt="Wypadek satelity NOAA19" src="./noaa/NOAA-N'_accident.jpg">
+        </a>
+        <figcaption>
+            <i>Zdj. 2 – Leżąca satelita NOAA-19 </i>
+        </figcaption>
+    </figure>
+
+    <h3 id="odbior">Najciekawsza rzecz, odbiór</h3>
+    <p class="align-justify">Do odbioru tych satelit oczywiście potrzebujemy anteny, odbiornika radiowego pracującego w paśmie satelit pogodowych tj. 137MHz i komputera.</p>
+
+    <h4 id="antena">Antena</h4>
+    <p class="align-justify">Do odbioru wystarczy nam dipol spolaryzowany pionowo, lecz lepszym wyborem jest V-dipole<sup><a href="#zdj3">[Zdj. 3]</a></sup>. Jego budowa jest bardzo prosta. Jego koszty wynoszą od 30zł do 60zł, w zależności jakiego kabla będziemy używać. Można też użyć anteny QFH (Quadrifilar Helicoidal Antenna)<sup><a href="#zdj4">[Zdj. 4]</a></sup>, lecz jego koszty i trudność wykonania są wyższe, ale sygnał jest adekwatnie lepszy.</p>
+    <figure id="zdj3">
+        <a href="./noaa/adams_V-dipole.png" title="Kliknij aby powiększyć">
+            <img class="img-res" alt="v-dipole" src="./noaa/adams_V-dipole.png">
+        </a>
+        <figcaption>
+            <i>Zdj. 3 – Antena typu V-Dipole wg 9A4QV</i>
+        </figcaption>
+    </figure>
+    <p>Antena typu V-Dipole jest tak naprawdę zwykłym dipolem półfalowym, którego ramiona są ustawione pod kątem 120&deg;. Długość ramion można obliczyć ze wzoru na długość fali.</p>
+    <div class="row">
+        <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-6 col-xlg-6">
+            <figure id="wzor1">
+                <a href="#" title="Kliknij aby powiększyć">
+                    <img class="img-res" alt="\lambda = \frac {c}{f}" src="./noaa/wzor1.png">
+                </a>
+                <figcaption>
+                    <i>Wzór 1 – Długość fali</i>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-6 col-xlg-6">
+            <figure id="wzor2">
+                <a href="#" title="Kliknij aby powiększyć">
+                    <img class="img-res" alt="l_{ramiona} = \frac {1}{4} \lambda" src="./noaa/wzor2.png">
+                </a>
+                <figcaption>
+                    <i>Wzór 2 – Długość ramiona dipola półfalowego</i>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+    
+    
+    
+    <figure id="zdj4">
+        <a href="./noaa/qfh1am.jpg" title="Kliknij aby powiększyć">
+            <img class="img-res" alt="qfh" src="./noaa/qfh1am.jpg">
+        </a>
+        <figcaption>
+            <i>Zdj. 4 – QFH</i>
+        </figcaption>
+    </figure>
+
+    <h4 id="odbiornik">Odbiornik</h4>
+    <p class="align-justify">Jako odbiornik możemy wykorzystać odbiornik RTL-SDR, np. do odbioru telewizji DVB-T, ważne żeby pracował w paśmie przeznaczonym do satelit pogodowych tj. 137 MHz, jego koszty wynoszą ok. 70zł.</p>
+
+    <h4 id="soft">Oprogramowanie</h4>
+    <p class="align-justify">Do sterowania odbiornika RTL-SDR potrzebujemy odpowiedniego programu, dla systemu Windows najlepszym wyborem jest SDR# bądź SDR++, dla systemów Linux oraz macOS – SDR++. Do dekodowania odebranego sygnału jest nam potrzebny program WXtoImg lub NOAA APT, program typu Virtual Audio Cable oraz program do śledzenia satelitów, najlepszym programem do tego jest GPredict, który działa na wszystkich systemach operacyjnych, istnieje również Orbitron, który jest starszy.</p>
+    
+    <h4 id="dekodowanie">Odbiór i dekodowanie</h4>
+    <p class="align-justify">Zakładamy, że już znamy oprogramowanie, którym będziemy się obsługiwać. Jeśli mamy działające programy oraz poprawnie wykonaną antenę powinniśmy zobaczyć sygnał<sup><a href="#zdj5">[Zdj. 5]</a></sup>. Poniżej znajduje się również zrzut ekranu wykonany podczas trwającego procesu dekodowania<sup><a href="#zdj6">[Zdj. 6]</a></sup>. </p>
+    <figure id="zdj5">
+        <a href="./noaa/1643046507.png" title="Kliknij aby powiększyć">
+            <img class="img-res" alt="Zdj. 5 – Interfejs SDR++ podczas przelotu NOAA-15" src="./noaa/1643046507.png">
+        </a>
+        <figcaption>
+            <i>Zdj. 5 – Interfejs SDR++ podczas przelotu NOAA-15</i>
+        </figcaption>
+    </figure>
+    <figure id="zdj6">
+        <a href="./noaa/1642844405.png" title="Kliknij aby powiększyć">
+            <img class="img-res" alt="Zdj. 6 – Proces dekodowania APT oraz śledzenia satelity wraz z interfejsem programu SDR++ w tle" src="./noaa/1642844405.png">
+        </a>
+        <figcaption>
+            <i>Zdj. 6 – Proces dekodowania APT oraz śledzenia satelity wraz z interfejsem programu SDR++ w tle</i>
+        </figcaption>
+    </figure>
+    <p class="align-justify">Po zakonczeniu dekodowania, w zależności od programu, powinniśmy mieć możliwość zobaczenia zdekodowanego obrazka<sup><a href="#zdj7">[Zdj. 7]</a></sup>. Ponadto w programie WXtoImg w zakładce „Enchancements” możemy wybrać opcje ulepszeń obrazu, pokroju nałożenia temperatur<sup><a href="#zdj8">[Zdj. 8]</a></sup>. </p>
+    <figure id="zdj7">
+        <a href="./noaa/decoded.png" title="Kliknij aby powiększyć">
+            <img class="img-res" alt="Zdj. 7 – Interfejs programu WXtoImg po zdekodowaniu sygnału z satelity NOAA-19" src="./noaa/decoded.png">
+        </a>
+        <figcaption>
+            <i>Zdj. 7 – Interfejs programu WXtoImg po zdekodowaniu sygnału z satelity NOAA-19</i>
+        </figcaption>
+    </figure>
+    <figure id="zdj8">
+        <a href="./noaa/decoded-colors.png" title="Kliknij aby powiększyć">
+            <img class="img-res" alt="Zdj.8 – Przykład nałożenia na obrazie uzyskanym z satelity NOAA-19" src="./noaa/decoded-colors.png">
+        </a>
+        <figcaption>
+            <i>Zdj.8 – Przykład nałożenia na obrazie uzyskanym z satelity NOAA-19</i>
+        </figcaption>
+    </figure>
+    
+    <h3 id="podsumowanie">Podsumowanie</h3>
+    <p class="align-justify">Możemy uzyskać zdjęcia z satelit NOAA-15, -18 i -19, ale również istnieją inne satelity, pokroju Meteora-M2, który nadaje w cyfrowej modulacji LRPT, ale to jest już temat na inny artykuł.</p>
+    <hr/>
+    <div id="zrodla" class="zrodla">
+        <p>Źródła</p>
+        <ol>
+            <li><a href="https://www.sigidwiki.com/wiki/Automatic_Picture_Transmission_(APT)">https://www.sigidwiki.com/wiki/Automatic_Picture_Transmission_(APT)</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/NOAA-19">https://en.wikipedia.org/wiki/NOAA-19</a></li>
+            <li><a href="https://pl.wikipedia.org/wiki/National_Oceanic_and_Atmospheric_Administration">https://pl.wikipedia.org/wiki/National_Oceanic_and_Atmospheric_Administration</a></li>
+            <li><a href="https://space.oscar.wmo.int/spaceagencies/view/noaa">https://space.oscar.wmo.int/spaceagencies/view/noaa</a></li>
+            <li><a href="https://space.oscar.wmo.int/satellites/view/noaa_15">https://space.oscar.wmo.int/satellites/view/noaa_15</a></li>
+            <li><a href="https://space.oscar.wmo.int/satellites/view/noaa_18">https://space.oscar.wmo.int/satellites/view/noaa_18</a></li>
+            <li><a href="https://space.oscar.wmo.int/satellites/view/noaa_19">https://space.oscar.wmo.int/satellites/view/noaa_19</a></li>
+        </ol>
+        <p>Zdjęcia</p>
+        <ol>
+            <li><a href="#zdj1">Zdj. 1</a> - <a href="https://en.wikipedia.org/wiki/File:NOAA-N%27_satellite_in_Vandenberg_AFB_clean_room.jpg">https://en.wikipedia.org/wiki/File:NOAA-N%27_satellite_in_Vandenberg_AFB_clean_room.jpg</a></li>
+            <li><a href="#zdj2">Zdj. 2</a> - <a href="https://en.wikipedia.org/wiki/File:NOAA-N%27_accident.jpg">https://en.wikipedia.org/wiki/File:NOAA-N%27_accident.jpg</a></li>
+            <li><a href="#zdj3">Zdj. 3</a> - <a href="https://lna4all.blogspot.com/2017/02/diy-137-mhz-wx-sat-v-dipole-antenna.html">https://lna4all.blogspot.com/2017/02/diy-137-mhz-wx-sat-v-dipole-antenna.html</a></li>
+            <li><a href="#zdj4">Zdj. 4</a> - <a href="http://jcoppens.com/ant/qfh/calc.en.php">http://jcoppens.com/ant/qfh/calc.en.php</a></li>
+            <li><a href="#zdj5">Zdj. 5</a>, <a href="#zdj6">Zdj. 6</a>, <a href="#zdj7">Zdj. 7</a>, <a href="#zdj8">Zdj. 8</a> -  Materiały własne</li>
+        </ol>
+    </div>
+
+    <hr/>
+    
+    <div class="zrodla">
+        <p>Historia edycji</p>
+        <ol>
+            <li>25.01.22 - Poprawiono błędy.</li>
+        </ol>
+    </div>
+    <footer>
+        stihlwagon - wojtasss298.tk <i>Strona poświęcona krótkofalarstwu.</i> - 2021 &copy;
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+

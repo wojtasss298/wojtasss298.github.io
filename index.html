@@ -1,158 +1,275 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tak</title>
-    <style>
-        .content{
-            border-style: solid;
-            border-color: black;
-            padding-left: 10px;
-            padding-right: 10px;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: white;
-        }
-
-        body{
-            background-color: gray;
-        }
-
-        header{
-            font-weight: bold;
-            text-align: center;
-            font-size: 300%;
-            margin: 5px;
-        }
-
-        footer{
-            font-size: 70%;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        img{
-            padding-top:15px;
-          padding-bottom: 15px;
-          max-width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" href="./assets/static/icon.png">
+    <title>Strona poświęcona krótkofalarstwu</title>
+    <link rel="preconnect" href="https://www.hamqsl.com/solarvhf.php">
 </head>
-<body>
-    <div class="content">
-        <header>
-            To jest heder
-        </header>
-        <hr>
-        <main>
-            <h1>Tak</h1>
-            <p>Witaj na mojej stronie, napewno nie znajdziesz tutaj tego czego szukasz.</p>
-            <p>Mam na imię Wojtek. Interesuję się fotografią, krótkofalarstwem, komunikacją miejską (zbiorkomem), elektroniką, oraz programowaniem. Lubie pływać i jeździć na rowerze.</p>
-            <p>Moje śmieszne dziwne strony i projekty:</p>
-            <ul>
-                <li>Elektronika</li>
-                <ul>
-                    <li>Kiedyś dodam</li>
-                    <li>Jakieś projekty</li>
-                    <li>czy coś takiego</li>
-                    <li>może coś zwiazane z krókofalarstwem</li>
-                </ul>
-                
-                <li>Grafika/Fotografia</li>
-                <ul>
-                    <li>Fotografia</li>
-                    <ul>
-                        <li><a href="./photoblog/">Photoblog</a></li>
-                        <li><a href="https://ilostan.wojtasss298.tk">Ilostan</a></li>
-                    </ul>
+<body onload="">
+    <header>
+        <img class="img-res" src="https://cdn.discordapp.com/attachments/855883086041448450/931983549941309551/unknown.png">
+    </header>
+    <div class="row">
+        <div class="col-xsm-12 col-sm-12 col-md-2 col-lg-2 col-xlg-2 pad " id="nav"></div>
+        <div class="col-xsm-12 col-sm-12 col-md-8 col-lg-8 col-xlg-8 pad">
+            <div class="row">
+                <div class="col-xsm-12 col-sm-12 col-md-6 col-lg-6 col-xlg-6 align-left pad">
+                    <h1>Aktualności</h1>
+                    <p>
+                        <b>Nowy adres</b><br>
+                        Po długiej nieaktywności, z dniem 12.02.2023 strona została przeniesiona na nowy adres.
+                    </p>
+                    <p>
+                        <b>Przebudowa</b><br>
+                        Dodano nowe strony, dodano zakładkę projekty, przebudowano oraz poprawiono istniejące. - 19.01.2022
+                    </p>
+                    <p>
+                        <b>Otwarcie strony</b><br>
+                        W dniu dzisiejszym nastąpiło oficjalne otwarcie strony - 04.10.2021
+                    </p>            
+                </div>
+                <div class="col-xsm-12 col-sm-12 col-md-6 col-lg-6 col-xlg-6 align-left pad">
+                    <h1>Artykuły</h1>
+                    <p>
+                        <b>Balon SP9ARK</b><br>
+                        Lot balonu SP9ARK (dodano 12.02.23)
+                    </p>
+                    <p>
+                        <b>Satelity NOAA i APT. Czym one są i jak je odbierać?</b><br>
+                        Satelity NOAA i APT. Czym one są i jak je odbierać? Podstawy, informacje, odbiór, dekodowanie. <a href="./article/noaa-i-apt.html" title="Przejdź do artykułu">Czytaj dalej</a> stihlwagon - 25.01.2021
+                    </p>
+                    <!--<p>
+                        <b>Upconverter & mini-whip</b><br>
+                        KITy do samodzielnego złożenia od OSIEM.NET.PL <a href="./article/link" title="Przejdź do artykułu">Czytaj dalej</a> - 01.11.2021
+                    </p>-->
+                    <p>
+                        <b>Balon SSTV z okazji dnia Wszystkich Świętych</b><br>
+                        Obrazki z balonu upamiętniającego zmarłych w 2021 roku. <a href="./article/balon-sstv-01-11-2021.html" title="Przejdź do artykułu">Czytaj dalej</a> - 01.11.2021
+                    </p>
+                    <p>
+                        <b>Finał Space Tech Kids</b><br>
+                        Z okazji finału Space Tech Kids został wysłany balon SSTV. <a href="./article/space-kids-final.html" title="Przejdź do artykułu">Czytaj dalej</a> - 31.10.2021
+                    </p>
+                    <p>
+                        <b>Balon SSTV SQ3XBD SP6QKM SQ6NEI</b><br>
+                        Kilka obrazków odebranych z lecących wówczas balonów. <a href="./article/balon-sstv-22-10-2021.html" title="Przejdź do artykułu">Czytaj dalej</a> - 22.10.2021
+                    </p>
+                    <p>
+                        <b>Dekodowanie sygnałów z satelity Es'hail&nbsp;2</b><br>
+                        Artykuł poświęcony dekodowaniu różnych sygnałów z satelity Es'Hail&nbsp;2. <a href="./article/qo100-beacons-kgstv-bpsk.html" title="Przejdź do artykułu">Czytaj dalej</a> - 09.10.2021
+                    </p>
+                    <p>
+                        <b>Balon ,,Bory Dolnośląskie"</b><br>
+                        Kilka odebranych obrazków. <a href="./article/balon-sstv-11-09-2021.html" title="Przejdź do artykułu">Czytaj dalej</a> - 11.09.2021
+                    </p>
+                </div>
+            </div>
 
-                    <li>Grafika</li>
-                    <ul>
-                        <li>/sepsa</li>
-                        <li>/pesa</li>
-                        <li>/newag</li>
-                    </ul>
+            <div class="align-left">
+                <h1>Projekty</h1>
 
-                    <li>Zdjęcia innych ludzi (ale wciąż kozak)</li>
-                    <ul>
-                        <li><a href="https://wgmnie.net">wgmnie.net</a></li>
-                    </ul>
-                </ul>
-                
-                <li>Zbiorkom</li>
-                <ul>
-                    <li>ilostan</li>
-                </ul>
+                <p>W tej zakładce znajdują się różne projekty związane z krótkofalarstwem, radioamatorstwem oraz szeroko pojętą elektroniką. Jeśli chciałbyś aby Twój projekt znalazł się tutaj napisz e-maila do <a href="mailto:wojtasss298@gmail.com">administratora</a> serwisu.</p>
 
-                <li>Krótkofalarstwo</li>
-                <ul>
-                    <li><a href="./ham">Hamskiegówno</a> <del>XD</del> - specjalna podstrona poswięcona tematowi</li>
-                    <li><a href="./ham/article/balon-sstv-11-09-2021.html" title="Przejdź">Balon ,,Bory Dolnośląskie"</a></li>
-                    <li><a href="./ham/article/balon-sstv-22-10-2021.html" title="Przejdź">Balony SQ3XBD SP6QKM SQ6NEI</a></li>
-                    <li><a href="./ham/article/space-kids-final.html" title="Przejdź">Finał Space Tech Kids</a></li>
-                    <li><a href="./ham/article/balon-sstv-01-11-2021.html" title="Przejdź">Balon z okazji 01.11</a></li>
-                </ul>
-                
-                <li>Mądrości</li>
-                <ul>
-                    <li><a href="./ham/article/qo100-beacons-kgstv-bpsk.html" title="Przejdź do artykułu">Dekodowanie różnych sygnałów z satelity Es'Hail&nbsp;2</a>  - 09.10.2021</li>
-                    <li><a href="./ham/article/odbior-satelity-qo100-eshail2-oscar100.html" title="Przejdź do artykułu">Odbiór satelity Es'Hail&nbsp;2</a> - 05.10.2021</li>
-                </ul>
+                <hr/>
 
-                <li>Projekty</li>
-                <ul>
-                    <li>Kiedyś dodam</li>
-                </ul>
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <h3>Odbiór satelity amatorskiego Es Hail'2</h3>
+                        <small>Dodał <a href="">wojtasss298</a> - 05.10.2021</small>
+                        
+                        <p style="text-align: justify">
+                            Jak odbierać rozmowy radioamatorów z katarskiego satelity telewizyjnego Es'hail&nbsp;2 (QO&nbsp;100, Qatar-OSCAR&nbsp;100) przy użyciu odbiornika rtl-sdr oraz anteny do odbioru telewizji satelitarnej.
+                        </p>
 
-                <li>Pociągi???</li>
-                <ul>
-                    <li><a href="./generator">Generator</a></li>
-                </ul>
+                        <p>
+                            <a href="./project/odbior-satelity-qo100-eshail2-oscar100.html">Czytaj dalej</a>
+                        </p>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img height="200" width="200" class="img-res align-center zaokraglone" src="https://cdn.discordapp.com/attachments/927834612279939092/933348700502257714/eshail-2-geostationary-satellite.jpg">
+                    </div>
+                </div>
 
-                <li>Inne (nie kwalifikujące się do żadnej kategorii <del>XD</del>)</li>
-                <ul>
-                    <li><a href="./pasty">Pasty</a></li>
-                    <li><a href="./piwo">Piwo</a></li>
-                    <li><a href="./pastebin">Pastebin Bieda Edyszyn</a></li>
-                </ul>
-              
-                <li>Fajne strony & różne linki</li>
-                <ul>
-                    <li><a href="https://jaj.co.pl/">Jajco</a></li>
-                    <li><a href="https://zamknijmor.de/">zamknijmorde</a></li>
-                    <li><a href="https://zamknijpiz.de/">zamknijpizde</a></li>
-                    <li><a href="https://maseuko.pl">maseuko</a></li>
-                    <li><a href="https://piteusz.ovh">strona piteusza</a></li>
-                    <li><a href="http://transport131.com.pl/">Galeria z rysunkami taboru</a></li>
-                </ul>
-                  </ul>
-        </main>
-        <hr>
-        <img style="text-align: center;" src="https://cdn.discordapp.com/attachments/737782368886063265/904107961725620284/unknown.png">
-        <footer>
-            wojtasss298.tk &copy; 2021
-        </footer>
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <h3>Odbiór transmisji wideo z Es Hail'2</h3>
+                        <small>Dodał <a href="">wojtasss298</a> - 12.02.2023</small>
+                        
+                        <p style="text-align: justify">
+                            Poradnik w jaki sposób można odebrać transmisje wideo z katarskiego satelity QO100.
+                        </p>
+
+                        <p>
+                            <a href=".">Czytaj dalej</a>
+                        </p>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img height="200" width="200" class="img-res align-center zaokraglone" src="https://cdn.discordapp.com/attachments/927834612279939092/933348700502257714/eshail-2-geostationary-satellite.jpg">
+                    </div>
+                </div>
+
+                <hr/>
+                <!--
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <h3>Dipol pólfalowy na pasmo 2m</h3>
+                        <small>Dodał <a href="">wojtasss298</a> - 12.01.2022</small>
+                        
+                        <p style="text-align: justify">Prosty dipol pólfalowy do nasłuchu na pasmo 2m. Konstrukcja bardzo prosta i tania w budowie. Antena dobrze się sprawuje, nawet po kilkumiesięcznym okresie 
+                        </p>
+
+                        <p>
+                            <a href="link">Czytaj dalej</a>
+                        </p>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img class="img-res" src="https://via.placeholder.com/200">
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <h3>Montaż anteny mini-whip</h3>
+                        <small>Dodał <a href="">wojtasss298</a> - 15.01.2022</small>
+                        <p>Montaż anteny typu mini-whip w własnoręcznie wykonanej obudowie.</p>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img class="img-res" src="https://via.placeholder.com/200">
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <h3>Fan dipole 80m, 40m, 20m</h3>
+                        <small>Dodał <a href="">wojtasss298</a> - 12.01.2022</small>
+                        <p>Antena wielopasmowa zbudowana ze skrętki, do na nasłuchu, prosta i tania w budowie.</p>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img class="img-res" src="https://via.placeholder.com/200">
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <h3>Pikający beacon</h3>
+                        <small>Dodał <a href="">wojtasss298</a> - 12.01.2022</small>                    
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img class="img-res" src="https://via.placeholder.com/200">
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <h3>LNA</h3>
+                        <small>Dodał <a href="">wojtasss298</a> - 12.01.2022</small>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img class="img-res" src="https://via.placeholder.com/200">
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <h3>Filtr na VHF</h3>
+                        <small>Dodał <a href="">wojtasss298</a> - 12.01.2022</small>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img class="img-res" src="https://via.placeholder.com/200">
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <h3>88MHz-108MHz BANDSTOP Filter</h3>
+                        <small>Dodał <a href="">wojtasss298</a> - 12.01.2022</small>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img class="img-res" src="https://via.placeholder.com/200">
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur accusamus facilis. Expedita, consectetur voluptas voluptates natus tempora sapiente doloremque hic nulla sed quisquam deleniti adipisci dicta neque eos nisi!</p>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img class="img-res" src="https://via.placeholder.com/200">
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row mg">
+                    <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequuntur accusamus facilis. Expedita, consectetur voluptas voluptates natus tempora sapiente doloremque hic nulla sed quisquam deleniti adipisci dicta neque eos nisi!</p>
+                    </div>
+                    <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3 align-center">
+                        <img class="img-res" src="https://via.placeholder.com/200">
+                    </div>
+                </div>-->
+
+            </div>
+
+        </div>
+        
+        
+        
+        <div class="col-xsm-12 col-sm-12 col-md-2 col-lg-2 col-xlg-2 pad">
+            <p>Propagacje</p>
+            <div>
+                <img class="img-res" src="https://rigreference.com/solar/img/cb">
+            </div>
+            <div>
+                <img class="img-res" src="https://rigreference.com/solar/img/tall">
+            </div>
+            <div>
+                <img class="img-res" src="https://www.hamqsl.com/solarvhf.php">
+            </div>
+            <p>Czas</p>
+            <script type="text/javascript"> var css_file=document.createElement("link"); css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href","https://s.bookcdn.com//css/cl/bw-cl-200x24.css?v=0.0.1"); document.getElementsByTagName("head")[0].appendChild(css_file); </script> <div id="tw_9_1546016228"><div style="width:200px; height:162px; margin: 0 auto;"><a href="https://booked.com.pl/time/warsaw-326">Warszawa</a><br/><a href="https://booked.com.pl/time/london-18114">Londyn</a><br/><a href="https://booked.com.pl/time/new-york-18103">Nowy Jork</a><br/><a href="https://booked.com.pl/time/sydney-30285">Sydney</a><br/><a href="https://booked.com.pl/time/tokyo-18247">Tokio</a><br/><a href="https://booked.com.pl/time/moscow-18171">Moskwa</a><br/></div></div> <script type="text/javascript"> function setWidgetData_1546016228(data){ if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = ''; var params = data.results[i]; objMainBlock = document.getElementById('tw_'+params.widget_type+'_'+params.widget_id); if(objMainBlock !== null) objMainBlock.innerHTML = params.html_code; } } } var clock_timer_1546016228 = -1; widgetSrc = "https://widgets.booked.net/time/info?ver=2;domid=;type=9;id=1546016228;scode=2;city_id=326,18114,18103,30285,18247,18171;wlangid=18;mode=0;details=0;background=eae2af;border_color=ffffff;color=5d7359;add_background=661c0e;add_color=eae2af;head_color=ffffff;border=1;transparent=0"; var widgetUrl = location.href; widgetSrc += '&ref=' + widgetUrl; var wstrackId = ""; if (wstrackId) { widgetSrc += ';wstrackId=' + wstrackId + ';' } var timeBookedScript = document.createElement("script"); timeBookedScript.setAttribute("type", "text/javascript"); timeBookedScript.src = widgetSrc; document.body.appendChild(timeBookedScript); </script>
+            <img class="img-res" src="https://printcal.net/web-calendar.png?size=s&w=s&ho=00&mo=00&so=1" alt="Printcal.net Calendar Widget"/>
+        </div>
     </div>
+    
+    <hr/>
+
+    <div class="row pad">
+        <div class="col-xsm-12 col-sm-12 col-md-3 col-lg-3 col-xlg-3">
+            <img class="img-res" src="https://cdn.discordapp.com/attachments/855883086041448450/931990858251792414/tabler-icon-access-point.png">
+        </div>
+        <div class="col-xsm-12 col-sm-12 col-md-9 col-lg-9 col-xlg-9">
+            <p>Strona powstała w celu informowania całej społeczności o krótkofalarstwie oraz jako zbiór infomarmacji, danych oraz różnych ciekawych projektów. Masz jakiś ciekawy pomysł? Chcesz coś dodać na stronę? Przyczynić się do rozwoju? Pisz!</p>
+            <p>Made with ❤ in Poland</p>
+        </div>
+    </div> 
+    <footer>
+        Made by wojtasss298 &copy; 2021 - <script>document.write(new Date().getFullYear())</script>
+    </footer>
 </body>
-</html>-->
-
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tak</title>
-</head>
-<body>
-<h1>STRONA W BUDOWIE</h1>
-<!--<a href="./projekty/">proj</a>
-<a href="./projekty/odbiornik-fm-glowica-tv.html">odbiornik</a>-->
-
-<a href="./music/">muzyka</a>
-
-<footer>wojtasss298.tk &copy; 2021</footer>
-</body>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+      $("#nav").load("navbar.html");
+    });
+</script>
 </html>

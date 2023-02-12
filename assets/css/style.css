@@ -1,0 +1,111 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 98%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgb(39, 39, 39);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+a{
+    color: white;
+    text-decoration: underline;
+}
+
+a:visited{
+    color: white;
+}
+
+a:hover{
+    color: rgb(0, 0, 255);
+}
+
+ul{
+    text-align: left;
+}
+
+nav {
+    font-size: 90%;
+}
+
+table, td, th {
+    border: 1px solid rgb(100, 100, 100);
+}
+
+td, th{
+    padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.img-res {
+	padding-top:15px;
+	padding-bottom: 15px;
+	max-width: 100%;
+}
+
+.align-left{
+    text-align: left;
+}
+
+audio{
+    width: 200px;
+    height: 20px;
+}
+
+.small{
+    font-size: 70%;
+}
+
+.muted{
+    opacity: 70%;
+}
+
+footer{
+    font-size: 70%;
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(39, 39, 39);
+}
+
+.heading{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.centercss{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+header{
+    font-size: large;
+}
+
+.align-right{
+    text-align: right;
+}
+
+.project-title{
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.align-center{
+    text-align: center;
+}
+
+.mg{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.zaokraglone{
+    padding: 5px;
+    border-radius: 25px;
+}
