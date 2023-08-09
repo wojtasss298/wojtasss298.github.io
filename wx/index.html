@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WeatherLog</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body class="theme-dark">
+        <div class="wrapper">
+            <div class="page-wrapper">
+                <div class="container-xl">
+                    <div class="page-header d-print-none">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="page-pretitle">
+                                    Overview
+                                </div>
+                                <h2 class="page-title">
+                                    Dashboard
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="container-xl">
+                    <div class="row row-deck row-cards">
+                        <div class="col-sm-6 col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="subheader">Temperatura</div>
+                                    </div>
+                                    <div class="h1 mb-3"><span id="temp"></span> &deg;C</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="subheader">Wilgotność</div>
+                                    </div>
+                                    <div class="h1 mb-3"><span id="hum"></span>%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="subheader">Ostatnie 24h</div>
+                                    </div>
+                                    <div class="h1 mb-3">
+                                        <canvas id="canvas"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="footer footer-transparent d-print-none">
+                    <div class="container">
+                        <div class="row text-center align-items-center flex-row-reverse">
+                            <div class="col-lg-auto ms-lg-auto">
+                                <ul class="list-inline list-inline-dots mb-0">
+                                    <li class="list-inline-item"><a href="#" class="link-secondary">Home</a></li>
+                                    <li class="list-inline-item"><a href="#" class="link-secondary">About</a></li>
+                                    <li class="list-inline-item"><a href="#" class="link-secondary">DevLog</a></li>
+                                    <li class="list-inline-item"><a href="#" class="link-secondary">Status</a></li>
+                                    <li class="list-inline-item"><a href="#" class="link-secondary">Contact</a></li>
+                                    <li class="list-inline-item"><a href="#" class="link-secondary">FAQ</a></li>
+                                    <li class="list-inline-item"><a href="#" class="link-secondary">Docs</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                                <ul class="list-inline list-inline-dots mb-0">
+                                    <li class="list-inline-item">wojtasss298 &copy; 2022</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script>
+
+            var url = "https://frog01-20507.wykr.es/api/v1/data/last/";
+
+            $.getJSON(url, function (response) {
+                document.getElementById("temp").innerHTML = response.last.temperature;
+                document.getElementById("hum").innerHTML = response.last.humidity;
+            })
+
+            async function loadChart() {
+                var url = "https://frog01-20507.wykr.es/api/v1/data/last/24";
+
+                $.getJSON(url, function (response) {
+                    var labels = response.last24.map(function (e) {
+                        return e.time;
+                    });
+                    var data1 = response.last24.map(function (e) {
+                        return e.temperature;
+                    });
+
+                    var data2 = response.last24.map(function (e) {
+                        return e.humidity;
+                    });
+
+                    var ctx = canvas.getContext("2d");
+                    var config = {
+                        type: "line",
+                        responsive: true,
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    label: "Temperatura",
+                                    data: data1,
+                                    borderColor: "rgba(0, 119, 204, 1)",
+                                    fill: false,
+                                    borderWidth: 5,
+                                },
+                                {
+                                    label: "Wilgotność",
+                                    data: data2,
+                                    borderColor: "rgba(237, 25, 9, 1)",
+                                    fill: false,
+                                    borderWidth: 5,
+                                },
+                            ],
+                        },
+                    };
+
+                    var chart = new Chart(ctx, config);
+                });
+            }
+
+            window.onload = loadChart();
+        </script>
+    </body>
+</html>
