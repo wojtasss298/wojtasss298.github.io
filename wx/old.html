@@ -37,7 +37,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="subheader">Temperatura</div>
                                     </div>
-                                    <div class="h1 mb-3"><span id="temp"></span>&deg;C</div>
+                                    <div class="h1 mb-3"><span id="temp"></span> &deg;C</div>
                                 </div>
                             </div>
                         </div>
@@ -52,51 +52,14 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-9 col-lg-9">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="subheader">DevLog</div>
-                                    </div>
-                                    <ol reversed="reversed">
-                                        <li>
-                                            <p>
-                                                <b>Montaż stacji w przejściowym miejscu.</b> - 20.03.2024<br/>
-                                                Po długim czasie czujnik został zamontowany w docelowej obudowie, niestety nie w miejscu docelowym.
-                                                <br/>
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <b>Uruchomienie stacji</b> - 10.01.2024<br/>
-                                                Uruchomienie testowej konfiguracji stacji wraz z prostym api. Stworzenie prostego widoku HTML do testów.
-                                            </p>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-lg-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="subheader">Stacja</div>
-                                    </div>
-                                    <div class="h1 mb-3" style="width: auto;height: auto; padding: 10px;">
-                                        <img  style="border-radius: 25px;" src="https://cdn.discordapp.com/attachments/933334090151772204/1219976981916155944/IMG_20240320_122720.jpg?ex=660d431a&is=65face1a&hm=98f4599b3a0ba4cae36a9364fd4db9f689680ac3f5318dfdac844eb7b237b01d&">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="col-sm-12 col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
-                                        <div class="subheader">subheader</div>
+                                        <div class="subheader">Ostatnie 24h</div>
                                     </div>
-                                    <div class="mb-3">
-                                        Strona w budowie...
+                                    <div class="h1 mb-3">
+                                        <canvas id="canvas"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +70,7 @@
                 <footer class="footer footer-transparent d-print-none">
                     <div class="container">
                         <div class="row text-center align-items-center flex-row-reverse">
-                            <!--<div class="col-lg-auto ms-lg-auto">
+                            <div class="col-lg-auto ms-lg-auto">
                                 <ul class="list-inline list-inline-dots mb-0">
                                     <li class="list-inline-item"><a href="#" class="link-secondary">Home</a></li>
                                     <li class="list-inline-item"><a href="#" class="link-secondary">About</a></li>
@@ -117,10 +80,10 @@
                                     <li class="list-inline-item"><a href="#" class="link-secondary">FAQ</a></li>
                                     <li class="list-inline-item"><a href="#" class="link-secondary">Docs</a></li>
                                 </ul>
-                            </div>-->
+                            </div>
                             <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                                 <ul class="list-inline list-inline-dots mb-0">
-                                    <li class="list-inline-item">wojtasss298 &copy; 2022 - <script>document.write(new Date().getFullYear())</script></li>
+                                    <li class="list-inline-item">wojtasss298 &copy; 2022</li>
                                 </ul>
                             </div>
                         </div>
@@ -130,14 +93,58 @@
         </div>
         <script>
 
-            var url = "https://frog01-20507.wykr.es/get/data";
+            var url = "https://frog01-20507.wykr.es/api/v1/data/last/";
 
             $.getJSON(url, function (response) {
-                document.getElementById("temp").innerHTML = Number(response.temperature);
-                document.getElementById("hum").innerHTML = Number(response.humidity);
+                document.getElementById("temp").innerHTML = response.last.temperature;
+                document.getElementById("hum").innerHTML = response.last.humidity;
             })
 
-           
+            async function loadChart() {
+                var url = "https://frog01-20507.wykr.es/api/v1/data/last/24";
+
+                $.getJSON(url, function (response) {
+                    var labels = response.last24.map(function (e) {
+                        return e.time;
+                    });
+                    var data1 = response.last24.map(function (e) {
+                        return e.temperature;
+                    });
+
+                    var data2 = response.last24.map(function (e) {
+                        return e.humidity;
+                    });
+
+                    var ctx = canvas.getContext("2d");
+                    var config = {
+                        type: "line",
+                        responsive: true,
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    label: "Temperatura",
+                                    data: data1,
+                                    borderColor: "rgba(0, 119, 204, 1)",
+                                    fill: false,
+                                    borderWidth: 5,
+                                },
+                                {
+                                    label: "Wilgotność",
+                                    data: data2,
+                                    borderColor: "rgba(237, 25, 9, 1)",
+                                    fill: false,
+                                    borderWidth: 5,
+                                },
+                            ],
+                        },
+                    };
+
+                    var chart = new Chart(ctx, config);
+                });
+            }
+
+            window.onload = loadChart();
         </script>
     </body>
 </html>
