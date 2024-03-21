@@ -18,10 +18,10 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <div class="page-pretitle">
-                                    Overview
+                                    Przegląd
                                 </div>
                                 <h2 class="page-title">
-                                    Dashboard
+                                    Wrocław, Polska,&nbsp;<span id="time-utc"></span><span style="font-size: 12px">(UTC)</span>
                                 </h2>
                             </div>
                         </div>
@@ -31,24 +31,55 @@
             <div class="page-body">
                 <div class="container-xl">
                     <div class="row row-deck row-cards">
+
                         <div class="col-sm-6 col-lg-6">
                             <div class="card">
                                 <div class="card-body">
+
                                     <div class="d-flex align-items-center">
                                         <div class="subheader">Temperatura</div>
                                     </div>
                                     <div class="h1 mb-3"><span id="temp"></span>&deg;C</div>
+
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-6 col-lg-6">
                             <div class="card">
                                 <div class="card-body">
+
                                     <div class="d-flex align-items-center">
-                                        <div class="subheader">Wilgotność</div>
+                                        <div class="subheader">Wilgotność powietrza</div>
                                     </div>
                                     <div class="h1 mb-3"><span id="hum"></span>%</div>
+
                                 </div>
+                            </div>
+                        </div>
+                      
+
+                        <div class="col-sm-9 col-md-9 col-lg-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="subheader">Stacja</h3>
+                                    <div>
+                                        <p>
+                                            Amatorska stacja pogodowa oparta o czujnik DHT11, proste api w express.js, oraz mikrokontroler NodeMcu v3. Całość zamontowana na maszcie, zamknięta w hermetycznej obudowie. Sensor zainstalowany został we własnoręcznie wykonanej osłonie przeciwsłonecznej.
+                                        </p>
+                                        <p>
+                                            Planowana jest stała rozbudowa o kolejne czujniki oraz wykresy z wyborem przedziałów czasowych.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
+
+                        <div class="col-sm-3 col-lg-3 col-md-3">
+                            <div class="card">
+                                <a href="https://cdn.discordapp.com/attachments/933334090151772204/1219976981916155944/IMG_20240320_122720.jpg?ex=660d431a&is=65face1a&hm=98f4599b3a0ba4cae36a9364fd4db9f689680ac3f5318dfdac844eb7b237b01d&" title="Kliknij aby powiększyć">
+                                    <img style="padding: 2px; border-radius: 4px" alt="Stacja" src="https://cdn.discordapp.com/attachments/933334090151772204/1219976981916155944/IMG_20240320_122720.jpg?ex=660d431a&is=65face1a&hm=98f4599b3a0ba4cae36a9364fd4db9f689680ac3f5318dfdac844eb7b237b01d&"/>
+                                </a>
                             </div>
                         </div>
 
@@ -59,6 +90,12 @@
                                         <div class="subheader">DevLog</div>
                                     </div>
                                     <ol reversed="reversed">
+                                        <li>
+                                            <p>
+                                                <b>Rozbudowa</b> - 22.03.2024<br/>
+                                                Rozbudowano stronę internetową o opis stacji, statystyki, godzinę ostatniego pomiaru oraz kartę kontakt.
+                                            </p>
+                                        </li>
                                         <li>
                                             <p>
                                                 <b>Montaż stacji w przejściowym miejscu.</b> - 20.03.2024<br/>
@@ -76,14 +113,20 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="col-sm-3 col-lg-3">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
-                                        <div class="subheader">Stacja</div>
+                                        <div class="subheader">Statystyki</div>
                                     </div>
-                                    <div class="h1 mb-3" style="width: auto;height: auto; padding: 10px;">
-                                        <img  style="border-radius: 25px;" src="https://cdn.discordapp.com/attachments/933334090151772204/1219976981916155944/IMG_20240320_122720.jpg?ex=660d431a&is=65face1a&hm=98f4599b3a0ba4cae36a9364fd4db9f689680ac3f5318dfdac844eb7b237b01d&">
+                                    <div class="mb-3" style="">
+                                        <ul>
+                                            <li>Żądania POST: <b><span id="stat-post"></span></b></li>
+                                            <li>Żądania GET: <b><span id="stat-get"></span></b></li>
+                                            <li>Rozmiar żądań POST: <b><span id="stat-size"></span></b></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -93,10 +136,13 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
-                                        <div class="subheader">subheader</div>
+                                        <div class="subheader">kontakt</div>
                                     </div>
                                     <div class="mb-3">
-                                        Strona w budowie...
+                                        <ul>
+                                            <li>Adres e-mail: <a href="mailto:" title="Wyślij wiadomość e-mail">wojtasss298@gmail.com</a></li>
+                                            <li>Discord: wojtasss298</li>
+                                        </ul>                                      
                                     </div>
                                 </div>
                             </div>
@@ -130,13 +176,37 @@
         </div>
         <script>
 
-            var url = "https://frog01-20507.wykr.es/get/data";
-
-            $.getJSON(url, function (response) {
+            var weather = "https://frog01-20507.wykr.es/get/data";
+            $.getJSON(weather, function (response) {
                 document.getElementById("temp").innerHTML = Number(response.temperature);
                 document.getElementById("hum").innerHTML = Number(response.humidity);
+                document.getElementById("time-utc").innerHTML = response.time;    
+                                
             })
 
+            var stats = "https://frog01-20507.wykr.es/stats";
+            $.getJSON(stats, function (response) {
+                
+                document.getElementById("stat-post").innerHTML = response["POST /post/data 201"];
+                document.getElementById("stat-get").innerHTML = response["GET /get/data 200"];
+
+                let bajty = response["POST /post/data 201"]*60;
+
+                if (bajty<1024){
+                    let size = bajty.toFixed(2) + "B"
+                    document.getElementById("stat-size").innerHTML = size;
+                } else if (bajty<1024*1024){
+                    let size = (bajty/1024).toFixed(2) + "KB"
+                    document.getElementById("stat-size").innerHTML = size;
+                } else if (bajty<1024*1024*1024){
+                    let size = (bajty/1024/1024).toFixed(2) + "MB"
+                    document.getElementById("stat-size").innerHTML = size;
+                } else if (bajty<1024*1024*1024*1024){
+                    let size = (bajty/1024/1024/1024).toFixed(2) + "GB"
+                    document.getElementById("stat-size").innerHTML = size;
+                } 
+ 
+            })
            
         </script>
     </body>
