@@ -126,6 +126,7 @@
                                             <li>Żądania POST: <b><span id="stat-post"></span></b></li>
                                             <li>Żądania GET: <b><span id="stat-get"></span></b></li>
                                             <li>Rozmiar żądań POST: <b><span id="stat-size"></span></b></li>
+                                            <li>Załadowania widżetu: <b><span id="stat-widget"></span></b></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -189,6 +190,7 @@
                 
                 document.getElementById("stat-post").innerHTML = response["POST /post/data 201"];
                 document.getElementById("stat-get").innerHTML = response["GET /get/data 200"];
+                document.getElementById("stat-widget").innerHTML = response["GET /get/datatxt 200"];
 
                 let bajty = response["POST /post/data 201"]*60;
 
