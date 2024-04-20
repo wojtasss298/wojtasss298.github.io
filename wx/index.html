@@ -5,23 +5,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Primary Meta Tags -->
-<title>WeatherLog</title>
-<meta name="title" content="Stacja Meteorologiczna" />
-<meta name="description" content="Amatorska stacja meteorologiczna we Wrocławiu." />
+        <title>WeatherLog</title>
+        <meta name="title" content="Stacja Meteorologiczna" />
+        <meta name="description" content="Amatorska stacja meteorologiczna we Wrocławiu." />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="wojtasss298.github.io/wx" />
-<meta property="og:title" content="Stacja Meteorologiczna" />
-<meta property="og:description" content="Amatorska stacja meteorologiczna we Wrocławiu." />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="wojtasss298.github.io/wx" />
+        <meta property="og:title" content="Stacja Meteorologiczna" />
+        <meta property="og:description" content="Amatorska stacja meteorologiczna we Wrocławiu." />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="wojtasss298.github.io/wx" />
-<meta property="twitter:title" content="Stacja Meteorologiczna" />
-<meta property="twitter:description" content="Amatorska stacja meteorologiczna we Wrocławiu." />
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="wojtasss298.github.io/wx" />
+        <meta property="twitter:title" content="Stacja Meteorologiczna" />
+        <meta property="twitter:description" content="Amatorska stacja meteorologiczna we Wrocławiu." />
 
-<!-- Meta Tags Generated with https://metatags.io -->
+        <!-- Meta Tags Generated with https://metatags.io -->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
@@ -39,7 +39,7 @@
                                     Przegląd
                                 </div>
                                 <h2 class="page-title">
-                                    Wrocław, Polska,&nbsp;<span id="time-utc"></span><span style="font-size: 12px">(UTC)</span>
+                                    Wrocław, Polska,&nbsp;<span id="time-utc"></span><span style="font-size: 12px">(CEST)</span>
                                 </h2>
                             </div>
                         </div>
@@ -76,22 +76,34 @@
                             </div>
                         </div>
                       
+                        
 
-                        <div class="col-sm-9 col-md-9 col-lg-9">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="subheader">Stacja</h3>
+                                    <h3 class="subheader">Ostatnie 24h</h3>
                                     <div>
-                                        <p>
-                                            Amatorska stacja pogodowa oparta o czujnik DHT11, proste api w express.js, oraz mikrokontroler NodeMcu v3. Całość zamontowana na maszcie, zamknięta w hermetycznej obudowie. Sensor zainstalowany został we własnoręcznie wykonanej osłonie przeciwsłonecznej.
-                                        </p>
-                                        <p>
-                                            Planowana jest stała rozbudowa o kolejne czujniki oraz wykresy z wyborem przedziałów czasowych.
-                                        </p>
+                                        <canvas id="canvas"></canvas>
                                     </div>
                                 </div>
                             </div>
                         </div>   
+
+                            <div class="col-sm-9 col-md-9 col-lg-9">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="subheader">Stacja</h3>
+                                        <div>
+                                            <p>
+                                                Amatorska stacja pogodowa oparta o czujnik DHT11, proste api w express.js, bazę danych, oraz mikrokontroler NodeMcu v3. Całość zamontowana na maszcie, zamknięta w hermetycznej obudowie. Sensor zainstalowany został we własnoręcznie wykonanej osłonie przeciwsłonecznej.
+                                            </p>
+                                            <p>
+                                                Planowana jest stała rozbudowa o kolejne czujniki oraz wykresy z wyborem przedziałów czasowych.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
 
                         <div class="col-sm-3 col-lg-3 col-md-3">
                             <div class="card">
@@ -108,6 +120,12 @@
                                         <div class="subheader">DevLog</div>
                                     </div>
                                     <ol reversed="reversed">
+                                        <li>
+                                            <p>
+                                                <b>Wykres</b> - 20.04.2024<br/>
+                                                Wprowadzono wykres z danymi z ostatnich 24 godzin. Od teraz stacja wysyła dane o równych godzinach, w odstępach dziesięcio minutowych (:00, :10, :20, :30, :40, :50).
+                                            </p>
+                                        </li>
                                         <li>
                                             <p>
                                                 <b>Rozbudowa</b> - 22.03.2024<br/>
@@ -141,8 +159,8 @@
                                     </div>
                                     <div class="mb-3">
                                         <ul>
-                                            <li>Wysłane dane:<b><span id="stat-post"></span></b></li>
-                                            <li>Wyświetlenia: <b><span id="stat-get"></span></b></li>
+                                            <li>Wysłano <b><span id="stat-post"></span></b> razy.</li>
+                                            <li>Otworzono <b><span id="stat-get"></span></b> razy.</li>
                                             <li>Rozmiar danych: <b><span id="stat-size"></span></b></li>
                                             <li>Załadowania widżetu: <b><span id="stat-widget"></span></b></li>
                                         </ul>
@@ -195,13 +213,7 @@
         </div>
         <script>
 
-            var weather = "https://frog01-20507.wykr.es/get/data";
-            $.getJSON(weather, function (response) {
-                document.getElementById("temp").innerHTML = Number(response.temperature);
-                document.getElementById("hum").innerHTML = Number(response.humidity);
-                document.getElementById("time-utc").innerHTML = response.time;    
-                                
-            })
+            
 
             var stats = "https://frog01-20507.wykr.es/stats";
             $.getJSON(stats, function (response) {
@@ -228,6 +240,66 @@
  
             })
            
+            async function loadChart() {
+                var url = "https://frog01-20507.wykr.es/get/last/24";
+
+                $.getJSON(url, function (response) {
+                    var labels = response.last24.map(function (e) {
+                        var date = new Date(e.epoch * 1000);
+                        var hours = date.getHours();
+                        var minutes = "0" + date.getMinutes();
+                        var formattedTime = hours + ':' + minutes.substr(-2);
+                        return formattedTime;
+                    });
+
+                    document.getElementById("temp").innerHTML = Number(response.last.temp);
+                    document.getElementById("hum").innerHTML = Number(response.last.humidity);
+
+                    var dataOstatni = new Date(response.last.epoch * 1000);
+                    var hoursOstatni = dataOstatni.getHours();
+                    var minutesOstatni = "0" + dataOstatni.getMinutes();
+                    var formattedTimeOstatni = hoursOstatni + ':' + minutesOstatni.substr(-2);
+
+                    document.getElementById("time-utc").innerHTML = formattedTimeOstatni;  
+
+                    var data1 = response.last24.map(function (e) {
+                        return e.temp;
+                    });
+
+                    var data2 = response.last24.map(function (e) {
+                        return e.humidity;
+                    });
+
+                    var ctx = canvas.getContext("2d");
+                    var config = {
+                        type: "line",
+                        responsive: true,
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    label: "Temperatura",
+                                    data: data1,
+                                    borderColor: "rgba(0, 119, 204, 1)",
+                                    fill: false,
+                                    borderWidth: 5,
+                                },
+                                {
+                                    label: "Wilgotność",
+                                    data: data2,
+                                    borderColor: "rgba(237, 25, 9, 1)",
+                                    fill: false,
+                                    borderWidth: 5,
+                                },
+                            ],
+                        },
+                    };
+
+                    var chart = new Chart(ctx, config);
+                });
+            }
+
+            window.onload = loadChart();
         </script>
     </body>
 </html>
