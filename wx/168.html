@@ -46,12 +46,14 @@
                             <div class="col-auto ms-auto d-print-none">
                                 <div class="btn-list">
                                   <span class="d-none d-sm-inline">
-                                    <a href="./168.html" class="btn">
-                                      Wykres 168h
+                                    <a href="./" class="btn">
+                                      Strona Główna
                                     </a>
                                   </span>
                                 </div>
                               </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -116,7 +118,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="subheader">Ostatnie 24h</h3>
+                                    <h3 class="subheader">Ostatnie 168h (1 tyg)</h3>
                                     <div>
                                         <canvas id="canvas"></canvas>
                                     </div>
@@ -148,70 +150,8 @@
                             </div>
                         </div>
 
+                        
                         <div class="col-sm-9 col-lg-9">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="subheader">DevLog</div>
-                                    </div>
-                                    <ol reversed="reversed">
-                                        <li>
-                                            <p>
-                                                <b>Najcieplej/Najzimniej</b> - 29.04.2024<br/>
-                                                Najwieksza i najmniejsza temperatura zanotowana w ciągu ostatnich 24h. Dodano wykres ostatnich 168h.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <b>Wykres</b> - 20.04.2024<br/>
-                                                Wprowadzono wykres z danymi z ostatnich 24 godzin. Od teraz stacja wysyła dane o równych godzinach, w odstępach dziesięcio minutowych (:00, :10, :20, :30, :40, :50).
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <b>Rozbudowa</b> - 22.03.2024<br/>
-                                                Rozbudowano stronę internetową o opis stacji, statystyki, godzinę ostatniego pomiaru oraz kartę kontakt.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <b>Montaż stacji w przejściowym miejscu.</b> - 20.03.2024<br/>
-                                                Po długim czasie czujnik został zamontowany w docelowej obudowie, niestety nie w miejscu docelowym.
-                                                <br/>
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <b>Uruchomienie stacji</b> - 10.01.2024<br/>
-                                                Uruchomienie testowej konfiguracji stacji wraz z prostym api. Stworzenie prostego widoku HTML do testów.
-                                            </p>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-sm-3 col-lg-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="subheader">Statystyki</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <ul>
-                                            <li>Wysłano <b><span id="stat-post"></span></b> razy.</li>
-                                            <li>Otworzono <b><span id="stat-get"></span></b> razy.</li>
-                                            <li>Rozmiar danych: <b><span id="stat-size"></span></b></li>
-                                            <li>Załadowania widżetu: <b><span id="stat-widget"></span></b></li>
-                                            <li>Załadowania wykresu: <b><span id="zaladowaniaWykresu"></span></b></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
@@ -226,6 +166,26 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-sm-3 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="subheader">Statystyki</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <ul>
+                                            <li>Wysłano <b><span id="stat-post"></span></b> razy.</li>
+                                            <li>Otworzono <b><span id="stat-get"></span></b> razy.</li>
+                                            <li>Rozmiar danych: <b><span id="stat-size"></span></b></li>
+                                            <li>Załadowania widżetu: <b><span id="stat-widget"></span></b></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
                     </div>
                 </div>
 
@@ -259,8 +219,7 @@
 
             var stats = "https://frog01-20507.wykr.es/stats";
             $.getJSON(stats, function (response) {
-                let zaladowaniaWykresu = response["GET /get/last/24 200"] + response["GET /get/last/24 429"] + response["GET /get/last/24 304"]
-                document.getElementById("zaladowaniaWykresu").innerHTML = zaladowaniaWykresu;
+               
                 document.getElementById("stat-post").innerHTML = response["POST /post/data 201"];
                 document.getElementById("stat-get").innerHTML = response["GET /stats/ 200"];
                 document.getElementById("stat-widget").innerHTML = response["GET /get/datatxt 200"];
@@ -284,10 +243,10 @@
             })
            
             async function loadChart() {
-                var url = "https://frog01-20507.wykr.es/get/last/24";
+                var url = "https://frog01-20507.wykr.es/get/last/168";
 
                 $.getJSON(url, function (response) {
-                    var labels = response.last24.map(function (e) {
+                    var labels = response.last168.map(function (e) {
                         var date = new Date(e.epoch * 1000);
                         var hours = date.getHours();
                         var minutes = "0" + date.getMinutes();
@@ -313,51 +272,52 @@
                     let max= (a,f)=> a.reduce((m,x)=> m[f]>x[f] ? m:x);
                     let min= (a,f)=> a.reduce((m,x)=> m[f]<x[f] ? m:x);
                     
-                    document.getElementById("maxTemp").innerHTML = max(response.last24, 'temp').temp;
-                    document.getElementById("minTemp").innerHTML = min(response.last24, 'temp').temp;
+                    document.getElementById("maxTemp").innerHTML = max(response.last168, 'temp').temp;
+                    document.getElementById("minTemp").innerHTML = min(response.last168, 'temp').temp;
 
                     //czas
-                    var epochMinimalnyCzas = new Date(min(response.last24, 'time').epoch * 1000);
+                    var epochMinimalnyCzas = new Date(min(response.last168, 'time').epoch * 1000);
                     var epochMinimalnaGodzina = epochMinimalnyCzas.getHours();
                     var epochMinimalnaMinuta = "0" + epochMinimalnyCzas.getMinutes();
                     var godzinaTemperaturyMinimalnej = epochMinimalnaGodzina + ':' + epochMinimalnaMinuta.substr(-2);
 
-                    var epochMaksymalnyCzas = new Date(max(response.last24, 'time').epoch * 1000);
+                    var epochMaksymalnyCzas = new Date(max(response.last168, 'time').epoch * 1000);
                     var epochMaksymalnyGodzina = epochMaksymalnyCzas.getHours();
                     var epochMaksymalnyMinuta = "0" + epochMaksymalnyCzas.getMinutes();
                     var godzinaTemperaturyMaksymalnej = epochMaksymalnyGodzina + ':' + epochMaksymalnyMinuta.substr(-2);
 
-                    document.getElementById("minTime").innerHTML = new Intl.DateTimeFormat('en-GB').format(new Date(max(response.last24, 'time').epoch * 1000)) + " " + godzinaTemperaturyMinimalnej;
-                    document.getElementById("maxTime").innerHTML = new Intl.DateTimeFormat('en-GB').format(new Date(min(response.last24, 'time').epoch * 1000)) + " " + godzinaTemperaturyMaksymalnej;
+                    document.getElementById("minTime").innerHTML = new Intl.DateTimeFormat('en-GB').format(new Date(max(response.last168, 'time').epoch * 1000)) + " " + godzinaTemperaturyMinimalnej;
+                    document.getElementById("maxTime").innerHTML = new Intl.DateTimeFormat('en-GB').format(new Date(min(response.last168, 'time').epoch * 1000)) + " " + godzinaTemperaturyMaksymalnej;
 
                       
                     
-                    var data1 = response.last24.map(function (e) {
+                    var data1 = response.last168.map(function (e) {
                         return e.temp;
                     });
 
-                    var data2 = response.last24.map(function (e) {
+                    var data2 = response.last168.map(function (e) {
                         return e.humidity;
                     });
 
                     var ctx = canvas.getContext("2d");
                     var config = {
+                        
+                        options: {
+        animation: false,
+        spanGaps: true,
+        datasets: {
+            line: {
+                pointRadius: 0 // disable for all `'line'` datasets
+            }
+        },
+        elements: {
+            point: {
+                radius: 0 // default to disabled in all datasets
+            }
+        }
+    },
                         type: "line",
                         responsive: true,
-                        options: {
-                        animation: false,
-                        spanGaps: true,
-                        datasets: {
-                            line: {
-                                pointRadius: 0 // disable for all `'line'` datasets
-                            }
-                        },
-                        elements: {
-                            point: {
-                                radius: 0 // default to disabled in all datasets
-                            }
-                        }
-                    },
                         data: {
                             labels: labels,
                             datasets: [
