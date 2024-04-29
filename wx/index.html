@@ -50,7 +50,7 @@
                 <div class="container-xl">
                     <div class="row row-deck row-cards">
 
-                        <div class="col-sm-6 col-lg-6">
+                        <div class="col-sm-6 col-lg-3">
                             <div class="card">
                                 <div class="card-body">
 
@@ -63,7 +63,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-6 col-lg-6">
+                        <div class="col-sm-6 col-lg-3">
                             <div class="card">
                                 <div class="card-body">
 
@@ -75,8 +75,33 @@
                                 </div>
                             </div>
                         </div>
-                      
-                        
+
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="d-flex align-items-center">
+                                        <div class="subheader">Najcieplej <span id="maxTime"></span></div>
+                                    </div>
+                                    <div class="h1 mb-3"><span id="maxTemp"></span>&deg;C</div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="d-flex align-items-center">
+                                        <div class="subheader">Najzimniej <span id="minTime"></span></div>
+                                    </div>
+                                    <div class="h1 mb-3"><span id="minTemp"></span>&deg;C</div>
+
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="card">
@@ -122,6 +147,12 @@
                                     <ol reversed="reversed">
                                         <li>
                                             <p>
+                                                <b>Najcieplej/Najzimniej</b> - 29.04.2024<br/>
+                                                Najwieksza i najmniejsza temperatura zanotowana w ciągu ostatnich 24h.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
                                                 <b>Wykres</b> - 20.04.2024<br/>
                                                 Wprowadzono wykres z danymi z ostatnich 24 godzin. Od teraz stacja wysyła dane o równych godzinach, w odstępach dziesięcio minutowych (:00, :10, :20, :30, :40, :50).
                                             </p>
@@ -163,6 +194,7 @@
                                             <li>Otworzono <b><span id="stat-get"></span></b> razy.</li>
                                             <li>Rozmiar danych: <b><span id="stat-size"></span></b></li>
                                             <li>Załadowania widżetu: <b><span id="stat-widget"></span></b></li>
+                                            <li>Załadowania wykresu: <b><span id="zaladowaniaWykresu"></span></b></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -217,9 +249,10 @@
 
             var stats = "https://frog01-20507.wykr.es/stats";
             $.getJSON(stats, function (response) {
-                
+                let zaladowaniaWykresu = response["GET /get/last/24 200"] + response["GET /get/last/24 429"] + response["GET /get/last/24 304"]
+                document.getElementById("zaladowaniaWykresu").innerHTML = zaladowaniaWykresu;
                 document.getElementById("stat-post").innerHTML = response["POST /post/data 201"];
-                document.getElementById("stat-get").innerHTML = response["GET /get/data 200"];
+                document.getElementById("stat-get").innerHTML = response["GET /stats/ 200"];
                 document.getElementById("stat-widget").innerHTML = response["GET /get/datatxt 200"];
 
                 let bajty = response["POST /post/data 201"]*60;
@@ -252,16 +285,43 @@
                         return formattedTime;
                     });
 
+
+                    /*NAJNOWSZE=DANE=========================================================================================*/
                     document.getElementById("temp").innerHTML = Number(response.last.temp);
                     document.getElementById("hum").innerHTML = Number(response.last.humidity);
 
+                    //czas
                     var dataOstatni = new Date(response.last.epoch * 1000);
                     var hoursOstatni = dataOstatni.getHours();
                     var minutesOstatni = "0" + dataOstatni.getMinutes();
                     var formattedTimeOstatni = hoursOstatni + ':' + minutesOstatni.substr(-2);
 
-                    document.getElementById("time-utc").innerHTML = formattedTimeOstatni;  
+                    document.getElementById("time-utc").innerHTML = formattedTimeOstatni;
 
+                    /*NAJMNIEJSZA=I=NAJWIEKSZA=TEMPERATURA===================================================================*/
+                    //temperatura
+                    let max= (a,f)=> a.reduce((m,x)=> m[f]>x[f] ? m:x);
+                    let min= (a,f)=> a.reduce((m,x)=> m[f]<x[f] ? m:x);
+                    
+                    document.getElementById("maxTemp").innerHTML = max(response.last24, 'temp').temp;
+                    document.getElementById("minTemp").innerHTML = min(response.last24, 'temp').temp;
+
+                    //czas
+                    var epochMinimalnyCzas = new Date(min(response.last24, 'time').epoch * 1000);
+                    var epochMinimalnaGodzina = epochMinimalnyCzas.getHours();
+                    var epochMinimalnaMinuta = "0" + epochMinimalnyCzas.getMinutes();
+                    var godzinaTemperaturyMinimalnej = epochMinimalnaGodzina + ':' + epochMinimalnaMinuta.substr(-2);
+
+                    var epochMaksymalnyCzas = new Date(max(response.last24, 'time').epoch * 1000);
+                    var epochMaksymalnyGodzina = epochMaksymalnyCzas.getHours();
+                    var epochMaksymalnyMinuta = "0" + epochMaksymalnyCzas.getMinutes();
+                    var godzinaTemperaturyMaksymalnej = epochMaksymalnyGodzina + ':' + epochMaksymalnyMinuta.substr(-2);
+
+                    document.getElementById("minTime").innerHTML = new Intl.DateTimeFormat('en-GB').format(new Date(max(response.last24, 'time').epoch * 1000)) + " " + godzinaTemperaturyMinimalnej;
+                    document.getElementById("maxTime").innerHTML = new Intl.DateTimeFormat('en-GB').format(new Date(min(response.last24, 'time').epoch * 1000)) + " " + godzinaTemperaturyMaksymalnej;
+
+                      
+                    
                     var data1 = response.last24.map(function (e) {
                         return e.temp;
                     });
