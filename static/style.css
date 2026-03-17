@@ -78,25 +78,31 @@ h1 span {
 
 
 .languages {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    display: flex;         /* Zmieniamy na flex, żeby kontrolować odstępy */
+    flex-wrap: wrap;       /* Pozwala tagom przechodzić do nowej linii */
+    gap: 8px;              /* Tworzy równe odstępy poziome i pionowe */
 }
 
 .languages h3 {
+    width: 100%;           /* Nagłówek "Languages" zajmie całą szerokość */
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    margin-top: 15px;      /* Odstęp od tagów powyżej */
 }
 
 .tag {
-    background-color: var(--accent-purple);
+    /* Usuwamy margin-right, bo 'gap' w .languages załatwia sprawę */
     color: #28282e;
-    padding: 4px 12px;
+    padding: 6px 12px;     /* Nieco większy padding dla lepszego wyglądu */
     border-radius: 6px;
     font-size: 0.8rem;
     font-weight: bold;
-    margin-right: 5px;
-    display: inline-block;
+    display: inline-flex;  /* Inline-flex lepiej trzyma tekst w środku */
+    align-items: center;
+    white-space: nowrap;   /* Zapobiega łamaniu tekstu wewnątrz jednego tagu */
 }
 
 /* PRZYCISKI */
